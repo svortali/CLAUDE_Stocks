@@ -20,6 +20,7 @@
   <nav class="sidebar">
     <ul class="sidebar-links">
       <li><a href="index.html" class="sidebar-overview active">Overview</a></li>
+      <li><a href="#portfolio-simulator" onclick="showView('sectors')">Portfolio Simulator</a></li>
       <li class="sidebar-divider"></li>
       <li class="sidebar-section-label">Sectors</li>
       <li><a href="sectors/semiconductors.html">Semiconductors</a></li>
@@ -103,6 +104,70 @@
       <div class="methodology">
         <div class="section-label">Investment Criteria</div>
         <p>We focus exclusively on sectors exposed to structural megatrends — technological shifts, demographic tailwinds, and policy catalysts that compound over a 5–10 year horizon regardless of short-term market cycles. Selection criteria: addressable market above $500B by 2035, meaningful public market access via liquid equities, early-to-mid adoption curve with asymmetric upside relative to downside risk, and defensible competitive moats (IP, network effects, regulatory barriers, or cost advantages). We exclude commodities, mature consumer industries, and sectors where differentiated alpha is structurally hard to achieve.</p>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+           PORTFOLIO SIMULATOR
+      ══════════════════════════════════════════ -->
+      <div id="portfolio-simulator" class="sim-section">
+        <div class="sim-header">
+          <h2>Portfolio Simulator</h2>
+          <p class="sim-note">Rule-based allocation — AI-powered real-time recommendations coming soon.</p>
+        </div>
+
+        <div class="sim-controls">
+          <div class="sim-ctrl-group">
+            <div class="sim-ctrl-label">Risk Tolerance</div>
+            <div class="sim-pills" id="sim-risk">
+              <button class="sim-pill active" data-value="conservative" onclick="simPillClick('sim-risk','conservative')">Conservative</button>
+              <button class="sim-pill" data-value="balanced" onclick="simPillClick('sim-risk','balanced')">Balanced</button>
+              <button class="sim-pill" data-value="aggressive" onclick="simPillClick('sim-risk','aggressive')">Aggressive</button>
+            </div>
+          </div>
+          <div class="sim-ctrl-group">
+            <div class="sim-ctrl-label">Investment Horizon</div>
+            <div class="sim-pills" id="sim-horizon">
+              <button class="sim-pill active" data-value="short" onclick="simPillClick('sim-horizon','short')">Short (1–2y)</button>
+              <button class="sim-pill" data-value="medium" onclick="simPillClick('sim-horizon','medium')">Medium (3–5y)</button>
+              <button class="sim-pill" data-value="long" onclick="simPillClick('sim-horizon','long')">Long (5–10y)</button>
+            </div>
+          </div>
+          <div class="sim-ctrl-group">
+            <div class="sim-ctrl-label">Portfolio Size</div>
+            <div class="sim-pills" id="sim-size">
+              <button class="sim-pill active" data-value="concentrated" onclick="simPillClick('sim-size','concentrated')">Concentrated (5–8)</button>
+              <button class="sim-pill" data-value="diversified" onclick="simPillClick('sim-size','diversified')">Diversified (12–20)</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="sim-output-area">
+          <div class="sim-charts-row">
+            <div class="sim-chart-block">
+              <div>
+                <div class="sim-chart-title">By Sector</div>
+                <canvas id="sim-donut-sector" width="150" height="150"></canvas>
+              </div>
+              <div class="sim-legend-list" id="sim-sector-legend"></div>
+            </div>
+            <div class="sim-chart-block">
+              <div>
+                <div class="sim-chart-title">By Ticker</div>
+                <canvas id="sim-donut-ticker" width="150" height="150"></canvas>
+              </div>
+              <div class="sim-legend-list" id="sim-ticker-legend"></div>
+            </div>
+          </div>
+
+          <table class="sim-table">
+            <thead>
+              <tr>
+                <th>Ticker</th><th>Company</th><th>Sector</th><th>Signal</th><th>Conv.</th><th>% Portfolio</th>
+              </tr>
+            </thead>
+            <tbody id="sim-tbody"></tbody>
+          </table>
+        </div>
       </div>
 
       <div class="dashboard-header">
@@ -338,6 +403,200 @@ function showView(v) {
     t.classList.toggle('active', t.dataset.view === v);
   });
 }
+
+// ── Portfolio Simulator ──────────────────────────────────────────────────────
+var SIM_STOCKS = [
+  {t:'NVDA',  c:'NVIDIA',               s:'Semiconductors',        sig:'buy',   conv:5, risk:'med',  up:'asym'},
+  {t:'ASML',  c:'ASML',                 s:'Semiconductors',        sig:'buy',   conv:5, risk:'low',  up:'high'},
+  {t:'TSM',   c:'TSMC ADR',             s:'Semiconductors',        sig:'buy',   conv:5, risk:'med',  up:'high'},
+  {t:'CEG',   c:'Constellation Energy', s:'Energy & Nuclear',      sig:'buy',   conv:5, risk:'low',  up:'high'},
+  {t:'ISRG',  c:'Intuitive Surgical',   s:'Robotics & Automation', sig:'buy',   conv:5, risk:'low',  up:'high'},
+  {t:'MSFT',  c:'Microsoft',            s:'AI / Software',         sig:'buy',   conv:5, risk:'low',  up:'high'},
+  {t:'CRWD',  c:'CrowdStrike',          s:'Defense & Cyber',       sig:'buy',   conv:5, risk:'med',  up:'high'},
+  {t:'AVGO',  c:'Broadcom',             s:'Semiconductors',        sig:'buy',   conv:4, risk:'low',  up:'high'},
+  {t:'VST',   c:'Vistra Energy',        s:'Energy & Nuclear',      sig:'buy',   conv:4, risk:'med',  up:'high'},
+  {t:'RKLB',  c:'Rocket Lab',           s:'Space',                 sig:'buy',   conv:4, risk:'high', up:'asym'},
+  {t:'ABB',   c:'ABB Ltd',              s:'Robotics & Automation', sig:'buy',   conv:4, risk:'low',  up:'high'},
+  {t:'META',  c:'Meta',                 s:'AI / Software',         sig:'buy',   conv:4, risk:'low',  up:'high'},
+  {t:'PANW',  c:'Palo Alto Networks',   s:'Defense & Cyber',       sig:'buy',   conv:4, risk:'med',  up:'high'},
+  {t:'NU',    c:'Nubank',               s:'Fintech & Digital',     sig:'buy',   conv:4, risk:'med',  up:'asym'},
+  {t:'REGN',  c:'Regeneron',            s:'Biotech & Genomics',    sig:'watch', conv:4, risk:'low',  up:'high'},
+  {t:'V',     c:'Visa',                 s:'Fintech & Digital',     sig:'watch', conv:4, risk:'low',  up:'mod'},
+  {t:'MU',    c:'Micron',               s:'Semiconductors',        sig:'watch', conv:3, risk:'high', up:'high'},
+  {t:'AMAT',  c:'Applied Materials',    s:'Semiconductors',        sig:'watch', conv:3, risk:'med',  up:'mod'},
+  {t:'ASTS',  c:'AST SpaceMobile',      s:'Space',                 sig:'watch', conv:3, risk:'high', up:'asym'},
+  {t:'CCJ',   c:'Cameco',               s:'Energy & Nuclear',      sig:'watch', conv:3, risk:'med',  up:'high'},
+  {t:'NEE',   c:'NextEra Energy',       s:'Energy & Nuclear',      sig:'watch', conv:3, risk:'low',  up:'mod'},
+  {t:'OKLO',  c:'Oklo',                 s:'Energy & Nuclear',      sig:'watch', conv:3, risk:'high', up:'asym'},
+  {t:'FSLR',  c:'First Solar',          s:'Energy & Nuclear',      sig:'watch', conv:3, risk:'med',  up:'high'},
+  {t:'TSLA',  c:'Tesla (Optimus)',       s:'Robotics & Automation', sig:'watch', conv:3, risk:'high', up:'asym'},
+  {t:'ROK',   c:'Rockwell Automation',  s:'Robotics & Automation', sig:'watch', conv:3, risk:'med',  up:'mod'},
+  {t:'GOOGL', c:'Alphabet',             s:'AI / Software',         sig:'watch', conv:3, risk:'med',  up:'mod'},
+  {t:'PLTR',  c:'Palantir',             s:'AI / Software',         sig:'watch', conv:3, risk:'med',  up:'asym'},
+  {t:'LHX',   c:'L3Harris',             s:'Defense & Cyber',       sig:'watch', conv:3, risk:'low',  up:'mod'},
+  {t:'RTX',   c:'RTX Corp',             s:'Defense & Cyber',       sig:'watch', conv:3, risk:'med',  up:'mod'},
+  {t:'LDOS',  c:'Leidos',               s:'Defense & Cyber',       sig:'watch', conv:3, risk:'low',  up:'mod'},
+  {t:'ILMN',  c:'Illumina',             s:'Biotech & Genomics',    sig:'watch', conv:3, risk:'med',  up:'high'},
+  {t:'CRSP',  c:'CRISPR Therapeutics',  s:'Biotech & Genomics',    sig:'watch', conv:3, risk:'high', up:'asym'},
+  {t:'BEAM',  c:'Beam Therapeutics',    s:'Biotech & Genomics',    sig:'watch', conv:3, risk:'high', up:'asym'},
+  {t:'MRNA',  c:'Moderna',              s:'Biotech & Genomics',    sig:'watch', conv:3, risk:'med',  up:'high'},
+  {t:'RXRX',  c:'Recursion Pharma',     s:'Biotech & Genomics',    sig:'watch', conv:3, risk:'high', up:'asym'},
+  {t:'COIN',  c:'Coinbase',             s:'Fintech & Digital',     sig:'watch', conv:3, risk:'high', up:'asym'},
+  {t:'SQ',    c:'Block',                s:'Fintech & Digital',     sig:'watch', conv:3, risk:'med',  up:'high'}
+];
+
+var SIM_SECTOR_COLORS = {
+  'Semiconductors':        '#3b82f6',
+  'AI / Software':         '#8b5cf6',
+  'Energy & Nuclear':      '#f59e0b',
+  'Robotics & Automation': '#06b6d4',
+  'Defense & Cyber':       '#64748b',
+  'Space':                 '#22c55e',
+  'Biotech & Genomics':    '#ec4899',
+  'Fintech & Digital':     '#f97316'
+};
+
+var SIM_STATE = {risk:'conservative', horizon:'short', size:'concentrated'};
+
+function simScore(stock, risk, horizon) {
+  var score = stock.conv * 10;
+  var rn = {low:1, med:2, high:3}[stock.risk];
+  if (risk === 'conservative') {
+    if (rn === 1) score += 20; else if (rn === 2) score += 5; else return -999;
+  } else if (risk === 'balanced') {
+    if (rn === 1) score += 10; else if (rn === 2) score += 5; else score -= 5;
+  } else {
+    if (stock.up === 'asym') score += 20;
+    if (rn === 3) score += 5; else if (rn === 1) score -= 5;
+  }
+  if (stock.sig === 'buy') score += 15;
+  if (horizon === 'short') {
+    if (stock.sig === 'buy') score += 10;
+    if (rn === 3) score -= 20;
+    if (stock.up === 'asym') score -= 5;
+    if (stock.sig === 'watch' && stock.conv <= 3) score -= 10;
+  } else if (horizon === 'long') {
+    if (stock.up === 'asym') score += 15;
+    if (stock.conv >= 4) score += 5;
+  }
+  return score;
+}
+
+function simDrawDonut(canvasId, segments, lbl1, lbl2) {
+  var canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  var dpr = window.devicePixelRatio || 1;
+  var sz = 150;
+  canvas.width = sz * dpr; canvas.height = sz * dpr;
+  canvas.style.width = sz + 'px'; canvas.style.height = sz + 'px';
+  var ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+  var cx = sz/2, cy = sz/2, R = sz/2 - 5, r = R * 0.52;
+  var total = segments.reduce(function(s, x) { return s + x.value; }, 0);
+  if (!total) return;
+  var gap = segments.length > 1 ? Math.PI / 180 * 1.5 : 0;
+  var angle = -Math.PI / 2;
+  segments.forEach(function(seg) {
+    var sweep = seg.value / total * Math.PI * 2;
+    if (sweep > gap * 2) {
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.arc(cx, cy, R, angle + gap, angle + sweep - gap);
+      ctx.closePath();
+      ctx.fillStyle = seg.color;
+      ctx.fill();
+    }
+    angle += sweep;
+  });
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI * 2);
+  ctx.fillStyle = '#1a1d27';
+  ctx.fill();
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillStyle = '#e2e8f0';
+  ctx.font = 'bold ' + Math.round(r * 0.52) + 'px -apple-system, sans-serif';
+  ctx.fillText(lbl1, cx, cy - r * 0.2);
+  ctx.font = Math.round(r * 0.3) + 'px -apple-system, sans-serif';
+  ctx.fillStyle = '#8892a4';
+  ctx.fillText(lbl2, cx, cy + r * 0.25);
+}
+
+function simRenderLegend(elId, items) {
+  var el = document.getElementById(elId);
+  if (!el) return;
+  el.innerHTML = items.map(function(it) {
+    return '<div class="sim-li"><span class="sim-swatch" style="background:' + it.color + '"></span>'
+      + '<span>' + it.label + '</span><span class="sim-li-pct">' + it.pct.toFixed(1) + '%</span></div>';
+  }).join('');
+}
+
+function updateSimulator() {
+  var risk = SIM_STATE.risk, horizon = SIM_STATE.horizon, size = SIM_STATE.size;
+  var eligible = SIM_STOCKS.map(function(s) {
+    return {stock: s, score: simScore(s, risk, horizon)};
+  }).filter(function(x) { return x.score > 0; });
+  eligible.sort(function(a, b) {
+    return b.score !== a.score ? b.score - a.score : b.stock.conv - a.stock.conv;
+  });
+  var count = size === 'concentrated' ? Math.min(7, eligible.length) : Math.min(16, eligible.length);
+  var sel = eligible.slice(0, count).map(function(x) { return x.stock; });
+  var totalConv = sel.reduce(function(s, x) { return s + x.conv; }, 0);
+  var portfolio = sel.map(function(s) {
+    return {stock: s, pct: Math.round(s.conv / totalConv * 1000) / 10};
+  });
+  var sum = portfolio.reduce(function(s, p) { return s + p.pct; }, 0);
+  if (portfolio.length) {
+    portfolio[portfolio.length - 1].pct = Math.round((portfolio[portfolio.length - 1].pct + (100 - sum)) * 10) / 10;
+  }
+
+  var sMap = {};
+  portfolio.forEach(function(p) { sMap[p.stock.s] = (sMap[p.stock.s] || 0) + p.pct; });
+  var sSegs = Object.keys(sMap).map(function(k) {
+    return {label: k, value: sMap[k], color: SIM_SECTOR_COLORS[k] || '#888', pct: sMap[k]};
+  }).sort(function(a, b) { return b.value - a.value; });
+  var tSegs = portfolio.map(function(p) {
+    return {label: p.stock.t, value: p.pct, color: SIM_SECTOR_COLORS[p.stock.s] || '#888', pct: p.pct};
+  });
+
+  simDrawDonut('sim-donut-sector', sSegs, sSegs.length + '', 'sectors');
+  simDrawDonut('sim-donut-ticker', tSegs, portfolio.length + '', 'stocks');
+  simRenderLegend('sim-sector-legend', sSegs);
+  simRenderLegend('sim-ticker-legend', tSegs.slice(0, size === 'concentrated' ? 7 : 6));
+
+  var stars = function(n) { return '★'.repeat(n) + '☆'.repeat(5 - n); };
+  var tbody = document.getElementById('sim-tbody');
+  if (!tbody) return;
+  tbody.innerHTML = portfolio.map(function(p) {
+    var s = p.stock, sc = s.sig === 'buy' ? 'green' : 'yellow', sl = s.sig === 'buy' ? 'Buy' : 'Watch';
+    var col = SIM_SECTOR_COLORS[s.s] || '#888';
+    return '<tr><td>' + s.t + '</td><td>' + s.c + '</td>'
+      + '<td><span style="display:inline-flex;align-items:center;gap:5px">'
+      + '<span class="sim-sector-dot" style="background:' + col + '"></span>' + s.s + '</span></td>'
+      + '<td><span class="badge ' + sc + '">' + sl + '</span></td>'
+      + '<td><span class="conv-stars">' + stars(s.conv) + '</span></td>'
+      + '<td><span class="sim-pct">' + p.pct.toFixed(1) + '%</span></td></tr>';
+  }).join('');
+}
+
+function simPillClick(groupId, value) {
+  document.querySelectorAll('#' + groupId + ' .sim-pill').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.value === value);
+  });
+  var keyMap = {'sim-risk':'risk', 'sim-horizon':'horizon', 'sim-size':'size'};
+  SIM_STATE[keyMap[groupId]] = value;
+  updateSimulator();
+}
+
+function simNavClick(e) {
+  e.preventDefault();
+  showView('sectors');
+  setTimeout(function() {
+    var el = document.getElementById('portfolio-simulator');
+    if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }, 60);
+}
+
+updateSimulator();
 </script>
 
 </body>
