@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<div class="sector-hero">
+  <div class="sector-meta">
+    <a href="{{ '/' | relative_url }}" class="back-link">← All Sectors</a>
+    <span class="badge {{ page.signal }}">
+      {% if page.signal == "green" %}High Conviction
+      {% elsif page.signal == "yellow" %}Monitor
+      {% else %}Avoid
+      {% endif %}
+    </span>
+  </div>
+  <h1>{{ page.title }}</h1>
+  <p class="headline">{{ page.headline }}</p>
+  <p class="updated">Last updated: {{ page.updated }}</p>
+</div>
+
+<div class="md-content">
+  {{ content }}
+</div>

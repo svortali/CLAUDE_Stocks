@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="{{ '/' | relative_url }}" class="brand">{{ site.title }}</a>
+  <ul class="nav-links">
+    {% assign sorted_sectors = site.sectors | sort: "priority" %}
+    {% for sector in sorted_sectors %}
+      <li>
+        <a href="{{ sector.url | relative_url }}"
+           {% if page.url == sector.url %}class="active"{% endif %}>
+          {{ sector.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
+
+<main class="page-wrap">
+  {{ content }}
+</main>
+
+</body>
+</html>
