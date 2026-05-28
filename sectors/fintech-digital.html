@@ -7,82 +7,76 @@
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
+<div class="layout">
 
-<nav class="site-nav">
-  <a href="../index.html" class="brand">Ryan Investment Co.</a>
-  <ul class="nav-links">
-    <li><a href="../index.html">Home</a></li>
-    <li class="has-dropdown">
-      <span class="dropdown-trigger">Sectors ▾</span>
-      <ul class="dropdown">
-        <li><a href="semiconductors.html">Semiconductors</a></li>
-        <li><a href="space.html">Space</a></li>
-        <li><a href="energy-nuclear.html">Energy &amp; Nuclear</a></li>
-        <li><a href="robotics-automation.html">Robotics &amp; Automation</a></li>
-        <li><a href="ai-software.html">AI / Software</a></li>
-        <li><a href="defense-cyber.html">Defense &amp; Cyber</a></li>
-        <li><a href="biotech-genomics.html">Biotech &amp; Genomics</a></li>
-        <li><a href="fintech-digital.html" class="active">Fintech &amp; Digital</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+  <nav class="sidebar">
+    <div class="sidebar-brand"><a href="../index.html">Ryan<br>Investment Co.</a></div>
+    <ul class="sidebar-links">
+      <li><a href="../index.html">Home</a></li>
+      <li class="sidebar-divider"></li>
+      <li class="sidebar-section-label">Sectors</li>
+      <li><a href="semiconductors.html">Semiconductors</a></li>
+      <li><a href="space.html">Space</a></li>
+      <li><a href="energy-nuclear.html">Energy &amp; Nuclear</a></li>
+      <li><a href="robotics-automation.html">Robotics &amp; Automation</a></li>
+      <li><a href="ai-software.html">AI / Software</a></li>
+      <li><a href="defense-cyber.html">Defense &amp; Cyber</a></li>
+      <li><a href="biotech-genomics.html">Biotech &amp; Genomics</a></li>
+      <li><a href="fintech-digital.html" class="active">Fintech &amp; Digital</a></li>
+    </ul>
+  </nav>
 
-<main class="page-wrap">
-
-  <div class="sector-hero">
-    <div class="sector-meta">
-      <a href="../index.html" class="back-link">← All Sectors</a>
-      <span class="badge yellow">Monitor</span>
+  <main class="page-wrap">
+    <div class="sector-hero">
+      <div class="sector-meta">
+        <a href="../index.html" class="back-link">← All Sectors</a>
+        <span class="badge yellow">Monitor</span>
+      </div>
+      <h1>Fintech &amp; Digital Assets</h1>
+      <p class="headline">Digital payment rails and regulated crypto access offer asymmetric upside</p>
+      <p class="updated">Last updated: 2026-05-28</p>
     </div>
-    <h1>Fintech &amp; Digital Assets</h1>
-    <p class="headline">Digital payment rails and regulated crypto access offer asymmetric upside</p>
-    <p class="updated">Last updated: 2026-05-28</p>
-  </div>
 
-  <div class="md-content">
+    <div class="md-content">
+      <h2>Stocks</h2>
+      <table>
+        <thead><tr><th>Ticker</th><th>Company</th><th>Signal</th><th>Thesis</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>NU</td><td>Nubank</td><td><span class="badge green">Buy</span></td><td>Largest digital bank in the world by customers</td><td>100M+ customers in Brazil/Mexico/Colombia; ~$10 ARPU growing rapidly; low credit loss ratio</td></tr>
+          <tr><td>COIN</td><td>Coinbase</td><td><span class="badge yellow">Watch</span></td><td>Regulated crypto exchange + custody infrastructure</td><td>Only major regulated US crypto exchange; benefits from Bitcoin ETF flows; highly correlated to crypto cycle</td></tr>
+          <tr><td>SQ</td><td>Block</td><td><span class="badge yellow">Watch</span></td><td>Cash App + Square seller ecosystem</td><td>Two-sided network has value; Bitcoin exposure adds volatility; watch gross profit growth</td></tr>
+          <tr><td>PYPL</td><td>PayPal</td><td><span class="badge yellow">Watch</span></td><td>Turnaround — new CEO, cost discipline, AI checkout</td><td>Brand still strong; Venmo monetization opportunity; cheap on free cash flow but needs execution</td></tr>
+          <tr><td>V</td><td>Visa</td><td><span class="badge yellow">Watch</span></td><td>Payment rails duopoly — defensive cash compounder</td><td>Not a high-growth play but durable moat; own if you want financial sector exposure with low risk</td></tr>
+          <tr><td>MSTR</td><td>MicroStrategy / Strategy</td><td><span class="badge red">Avoid</span></td><td>Leveraged Bitcoin proxy</td><td>Permanent premium to NAV; use Bitcoin ETFs (IBIT, FBTC) for cleaner BTC exposure</td></tr>
+        </tbody>
+      </table>
 
-    <h2>Stocks</h2>
-    <table>
-      <thead>
-        <tr><th>Ticker</th><th>Company</th><th>Signal</th><th>Thesis</th><th>Notes</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>NU</td><td>Nubank</td><td><span class="badge green">Buy</span></td><td>Largest digital bank in the world by customers</td><td>100M+ customers in Brazil/Mexico/Colombia; ~$10 ARPU growing rapidly; low credit loss ratio</td></tr>
-        <tr><td>COIN</td><td>Coinbase</td><td><span class="badge yellow">Watch</span></td><td>Regulated crypto exchange + custody infrastructure</td><td>Only major regulated US crypto exchange; benefits from Bitcoin ETF flows; highly correlated to crypto cycle</td></tr>
-        <tr><td>SQ</td><td>Block</td><td><span class="badge yellow">Watch</span></td><td>Cash App + Square seller ecosystem</td><td>Two-sided network has value; Bitcoin exposure adds volatility; watch gross profit growth</td></tr>
-        <tr><td>PYPL</td><td>PayPal</td><td><span class="badge yellow">Watch</span></td><td>Turnaround — new CEO, cost discipline, AI checkout</td><td>Brand still strong; Venmo monetization opportunity; cheap on free cash flow but needs execution</td></tr>
-        <tr><td>V</td><td>Visa</td><td><span class="badge yellow">Watch</span></td><td>Payment rails duopoly — defensive cash compounder</td><td>Not a high-growth play but durable moat; own if you want financial sector exposure with low risk</td></tr>
-        <tr><td>MSTR</td><td>MicroStrategy / Strategy</td><td><span class="badge red">Avoid</span></td><td>Leveraged Bitcoin proxy</td><td>Permanent premium to NAV; use Bitcoin ETFs (IBIT, FBTC) for cleaner BTC exposure</td></tr>
-      </tbody>
-    </table>
+      <h2>Why Now</h2>
+      <ul>
+        <li><strong>Digital banking penetration</strong> in Latin America, Southeast Asia, and Africa is still sub-30% — the multi-decade growth runway for neobanks like Nubank dwarfs what's already been captured</li>
+        <li><strong>Crypto regulatory clarity</strong> is finally emerging in the US: Bitcoin spot ETFs approved, stablecoin legislation moving — institutionalization removes the existential risk that has weighed on the sector</li>
+        <li><strong>AI in financial services</strong>: fraud detection, underwriting, and personalized financial advice are being rebuilt on AI — incumbents and challengers both benefit</li>
+        <li><strong>Stablecoin adoption</strong> for cross-border payments is growing rapidly in emerging markets — companies with stablecoin rails (Coinbase, Circle) are early beneficiaries</li>
+      </ul>
 
-    <h2>Why Now</h2>
-    <ul>
-      <li><strong>Digital banking penetration</strong> in Latin America, Southeast Asia, and Africa is still sub-30% — the multi-decade growth runway for neobanks like Nubank dwarfs what's already been captured</li>
-      <li><strong>Crypto regulatory clarity</strong> is finally emerging in the US: Bitcoin spot ETFs approved, stablecoin legislation moving — institutionalization removes the existential risk that has weighed on the sector</li>
-      <li><strong>AI in financial services</strong>: fraud detection, underwriting, and personalized financial advice are being rebuilt on AI — incumbents and challengers both benefit</li>
-      <li><strong>Stablecoin adoption</strong> for cross-border payments is growing rapidly in emerging markets — companies with stablecoin rails (Coinbase, Circle) are early beneficiaries</li>
-    </ul>
+      <h2>Key Risks</h2>
+      <ul>
+        <li><strong>Crypto cyclicality</strong>: COIN and SQ are heavily correlated to Bitcoin price; a bear market compresses revenue significantly</li>
+        <li><strong>Regulatory risk remains</strong>: despite progress, crypto regulation is still evolving globally; a hostile regime in a key market can hurt quickly</li>
+        <li><strong>Disintermediation risk</strong>: central bank digital currencies (CBDCs) could displace some fintech use cases, especially in emerging markets</li>
+        <li><strong>Credit cycle exposure</strong>: neobanks like Nubank face higher credit losses in a recession given their customer base is often sub-prime or underbanked</li>
+      </ul>
 
-    <h2>Key Risks</h2>
-    <ul>
-      <li><strong>Crypto cyclicality</strong>: COIN and SQ are heavily correlated to Bitcoin price; a bear market compresses revenue significantly</li>
-      <li><strong>Regulatory risk remains</strong>: despite progress, crypto regulation is still evolving globally; a hostile regime in a key market can hurt quickly</li>
-      <li><strong>Disintermediation risk</strong>: central bank digital currencies (CBDCs) could displace some fintech use cases, especially in emerging markets</li>
-      <li><strong>Credit cycle exposure</strong>: neobanks like Nubank face higher credit losses in a recession given their customer base is often sub-prime or underbanked</li>
-    </ul>
-
-    <h2>Catalysts to Watch</h2>
-    <ul>
-      <li>US stablecoin legislation (GENIUS Act or equivalent) — creates a legal framework for USD stablecoins</li>
-      <li>Bitcoin price cycle (halving was April 2024; historically 12–18 months to peak)</li>
-      <li>Nubank Brazil credit quality metrics in earnings (watch NPL ratio)</li>
-      <li>Coinbase institutional custody growth (signals Wall Street crypto adoption)</li>
-      <li>PayPal stablecoin (PYUSD) adoption and Venmo monetization announcements</li>
-    </ul>
-
-  </div>
-</main>
+      <h2>Catalysts to Watch</h2>
+      <ul>
+        <li>US stablecoin legislation (GENIUS Act or equivalent) — creates a legal framework for USD stablecoins</li>
+        <li>Bitcoin price cycle (halving was April 2024; historically 12–18 months to peak)</li>
+        <li>Nubank Brazil credit quality metrics in earnings (watch NPL ratio)</li>
+        <li>Coinbase institutional custody growth (signals Wall Street crypto adoption)</li>
+        <li>PayPal stablecoin (PYUSD) adoption and Venmo monetization announcements</li>
+      </ul>
+    </div>
+  </main>
+</div>
 </body>
 </html>
