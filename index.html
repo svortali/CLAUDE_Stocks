@@ -226,11 +226,11 @@
     <div id="view-tickers" class="view-pane" style="display:none">
 
       <div class="dashboard-header">
-        <h1>All Tickers — 49 stocks analyzed</h1>
+        <h1>All Tickers — 50 stocks analyzed</h1>
         <span class="as-of">Updated May 2026</span>
       </div>
 
-      <!-- BUY -->
+      <!-- BUY — sorted by conviction desc -->
       <div class="ticker-group">
         <div class="ticker-group-header">
           <span class="badge green">Buy</span>
@@ -238,74 +238,74 @@
         </div>
         <table class="ticker-table">
           <thead>
-            <tr><th>Ticker</th><th>Company</th><th>Sector</th><th>Signal</th></tr>
+            <tr><th>Ticker</th><th>Company</th><th>Sector</th><th>Signal</th><th>Conv.</th><th>Risk</th><th>Upside</th></tr>
           </thead>
           <tbody>
-            <tr><td><a href="sectors/semiconductors.html">NVDA</a></td><td>NVIDIA</td><td><a href="sectors/semiconductors.html">Semiconductors</a></td><td><span class="badge green">Buy</span></td></tr>
-            <tr><td><a href="sectors/semiconductors.html">ASML</a></td><td>ASML</td><td><a href="sectors/semiconductors.html">Semiconductors</a></td><td><span class="badge green">Buy</span></td></tr>
-            <tr><td><a href="sectors/semiconductors.html">TSM</a></td><td>TSMC ADR</td><td><a href="sectors/semiconductors.html">Semiconductors</a></td><td><span class="badge green">Buy</span></td></tr>
-            <tr><td><a href="sectors/semiconductors.html">AVGO</a></td><td>Broadcom</td><td><a href="sectors/semiconductors.html">Semiconductors</a></td><td><span class="badge green">Buy</span></td></tr>
-            <tr><td><a href="sectors/space.html">RKLB</a></td><td>Rocket Lab</td><td><a href="sectors/space.html">Space</a></td><td><span class="badge green">Buy</span></td></tr>
-            <tr><td><a href="sectors/energy-nuclear.html">CEG</a></td><td>Constellation Energy</td><td><a href="sectors/energy-nuclear.html">Energy &amp; Nuclear</a></td><td><span class="badge green">Buy</span></td></tr>
-            <tr><td><a href="sectors/energy-nuclear.html">VST</a></td><td>Vistra Energy</td><td><a href="sectors/energy-nuclear.html">Energy &amp; Nuclear</a></td><td><span class="badge green">Buy</span></td></tr>
-            <tr><td><a href="sectors/robotics-automation.html">ISRG</a></td><td>Intuitive Surgical</td><td><a href="sectors/robotics-automation.html">Robotics &amp; Automation</a></td><td><span class="badge green">Buy</span></td></tr>
-            <tr><td><a href="sectors/robotics-automation.html">ABB</a></td><td>ABB Ltd</td><td><a href="sectors/robotics-automation.html">Robotics &amp; Automation</a></td><td><span class="badge green">Buy</span></td></tr>
-            <tr><td><a href="sectors/ai-software.html">MSFT</a></td><td>Microsoft</td><td><a href="sectors/ai-software.html">AI / Software</a></td><td><span class="badge green">Buy</span></td></tr>
-            <tr><td><a href="sectors/ai-software.html">META</a></td><td>Meta</td><td><a href="sectors/ai-software.html">AI / Software</a></td><td><span class="badge green">Buy</span></td></tr>
-            <tr><td><a href="sectors/defense-cyber.html">CRWD</a></td><td>CrowdStrike</td><td><a href="sectors/defense-cyber.html">Defense &amp; Cyber</a></td><td><span class="badge green">Buy</span></td></tr>
-            <tr><td><a href="sectors/defense-cyber.html">PANW</a></td><td>Palo Alto Networks</td><td><a href="sectors/defense-cyber.html">Defense &amp; Cyber</a></td><td><span class="badge green">Buy</span></td></tr>
-            <tr><td><a href="sectors/fintech-digital.html">NU</a></td><td>Nubank</td><td><a href="sectors/fintech-digital.html">Fintech &amp; Digital</a></td><td><span class="badge green">Buy</span></td></tr>
-            <tr><td><a href="sectors/robotics-automation.html">NVDA*</a></td><td>NVIDIA (Isaac / Robotics)</td><td><a href="sectors/robotics-automation.html">Robotics &amp; Automation</a></td><td><span class="badge green">Buy</span></td></tr>
+            <tr><td><a href="sectors/semiconductors.html">NVDA</a></td><td>NVIDIA</td><td><a href="sectors/semiconductors.html">Semiconductors</a></td><td><span class="badge green">Buy</span></td><td><span class="conv-stars">★★★★★</span></td><td><span class="risk-med">Med</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
+            <tr><td><a href="sectors/semiconductors.html">ASML</a></td><td>ASML</td><td><a href="sectors/semiconductors.html">Semiconductors</a></td><td><span class="badge green">Buy</span></td><td><span class="conv-stars">★★★★★</span></td><td><span class="risk-low">Low</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/semiconductors.html">TSM</a></td><td>TSMC ADR</td><td><a href="sectors/semiconductors.html">Semiconductors</a></td><td><span class="badge green">Buy</span></td><td><span class="conv-stars">★★★★★</span></td><td><span class="risk-med">Med</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/energy-nuclear.html">CEG</a></td><td>Constellation Energy</td><td><a href="sectors/energy-nuclear.html">Energy &amp; Nuclear</a></td><td><span class="badge green">Buy</span></td><td><span class="conv-stars">★★★★★</span></td><td><span class="risk-low">Low</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/robotics-automation.html">ISRG</a></td><td>Intuitive Surgical</td><td><a href="sectors/robotics-automation.html">Robotics &amp; Automation</a></td><td><span class="badge green">Buy</span></td><td><span class="conv-stars">★★★★★</span></td><td><span class="risk-low">Low</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/robotics-automation.html">NVDA*</a></td><td>NVIDIA (Isaac / Robotics)</td><td><a href="sectors/robotics-automation.html">Robotics &amp; Automation</a></td><td><span class="badge green">Buy</span></td><td><span class="conv-stars">★★★★★</span></td><td><span class="risk-med">Med</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
+            <tr><td><a href="sectors/ai-software.html">MSFT</a></td><td>Microsoft</td><td><a href="sectors/ai-software.html">AI / Software</a></td><td><span class="badge green">Buy</span></td><td><span class="conv-stars">★★★★★</span></td><td><span class="risk-low">Low</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/defense-cyber.html">CRWD</a></td><td>CrowdStrike</td><td><a href="sectors/defense-cyber.html">Defense &amp; Cyber</a></td><td><span class="badge green">Buy</span></td><td><span class="conv-stars">★★★★★</span></td><td><span class="risk-med">Med</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/semiconductors.html">AVGO</a></td><td>Broadcom</td><td><a href="sectors/semiconductors.html">Semiconductors</a></td><td><span class="badge green">Buy</span></td><td><span class="conv-stars">★★★★☆</span></td><td><span class="risk-low">Low</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/energy-nuclear.html">VST</a></td><td>Vistra Energy</td><td><a href="sectors/energy-nuclear.html">Energy &amp; Nuclear</a></td><td><span class="badge green">Buy</span></td><td><span class="conv-stars">★★★★☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/space.html">RKLB</a></td><td>Rocket Lab</td><td><a href="sectors/space.html">Space</a></td><td><span class="badge green">Buy</span></td><td><span class="conv-stars">★★★★☆</span></td><td><span class="risk-high">High</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
+            <tr><td><a href="sectors/robotics-automation.html">ABB</a></td><td>ABB Ltd</td><td><a href="sectors/robotics-automation.html">Robotics &amp; Automation</a></td><td><span class="badge green">Buy</span></td><td><span class="conv-stars">★★★★☆</span></td><td><span class="risk-low">Low</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/ai-software.html">META</a></td><td>Meta</td><td><a href="sectors/ai-software.html">AI / Software</a></td><td><span class="badge green">Buy</span></td><td><span class="conv-stars">★★★★☆</span></td><td><span class="risk-low">Low</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/defense-cyber.html">PANW</a></td><td>Palo Alto Networks</td><td><a href="sectors/defense-cyber.html">Defense &amp; Cyber</a></td><td><span class="badge green">Buy</span></td><td><span class="conv-stars">★★★★☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/fintech-digital.html">NU</a></td><td>Nubank</td><td><a href="sectors/fintech-digital.html">Fintech &amp; Digital</a></td><td><span class="badge green">Buy</span></td><td><span class="conv-stars">★★★★☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
           </tbody>
         </table>
       </div>
 
-      <!-- WATCH -->
+      <!-- WATCH — sorted by conviction desc -->
       <div class="ticker-group">
         <div class="ticker-group-header">
           <span class="badge yellow">Watch</span>
-          <span class="ticker-group-count">29 stocks</span>
+          <span class="ticker-group-count">30 stocks</span>
         </div>
         <table class="ticker-table">
           <thead>
-            <tr><th>Ticker</th><th>Company</th><th>Sector</th><th>Signal</th></tr>
+            <tr><th>Ticker</th><th>Company</th><th>Sector</th><th>Signal</th><th>Conv.</th><th>Risk</th><th>Upside</th></tr>
           </thead>
           <tbody>
-            <tr><td><a href="sectors/semiconductors.html">MU</a></td><td>Micron</td><td><a href="sectors/semiconductors.html">Semiconductors</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/semiconductors.html">AMAT</a></td><td>Applied Materials</td><td><a href="sectors/semiconductors.html">Semiconductors</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/semiconductors.html">INTC</a></td><td>Intel</td><td><a href="sectors/semiconductors.html">Semiconductors</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/space.html">ASTS</a></td><td>AST SpaceMobile</td><td><a href="sectors/space.html">Space</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/space.html">LUNR</a></td><td>Intuitive Machines</td><td><a href="sectors/space.html">Space</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/energy-nuclear.html">NEE</a></td><td>NextEra Energy</td><td><a href="sectors/energy-nuclear.html">Energy &amp; Nuclear</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/energy-nuclear.html">OKLO</a></td><td>Oklo</td><td><a href="sectors/energy-nuclear.html">Energy &amp; Nuclear</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/energy-nuclear.html">NNE</a></td><td>Nano Nuclear Energy</td><td><a href="sectors/energy-nuclear.html">Energy &amp; Nuclear</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/energy-nuclear.html">CCJ</a></td><td>Cameco</td><td><a href="sectors/energy-nuclear.html">Energy &amp; Nuclear</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/energy-nuclear.html">FSLR</a></td><td>First Solar</td><td><a href="sectors/energy-nuclear.html">Energy &amp; Nuclear</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/robotics-automation.html">ROK</a></td><td>Rockwell Automation</td><td><a href="sectors/robotics-automation.html">Robotics &amp; Automation</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/robotics-automation.html">TSLA</a></td><td>Tesla (Optimus)</td><td><a href="sectors/robotics-automation.html">Robotics &amp; Automation</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/robotics-automation.html">BRKS</a></td><td>Brooks Automation</td><td><a href="sectors/robotics-automation.html">Robotics &amp; Automation</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/robotics-automation.html">KION</a></td><td>Kion Group</td><td><a href="sectors/robotics-automation.html">Robotics &amp; Automation</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/ai-software.html">GOOGL</a></td><td>Alphabet</td><td><a href="sectors/ai-software.html">AI / Software</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/ai-software.html">PLTR</a></td><td>Palantir</td><td><a href="sectors/ai-software.html">AI / Software</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/defense-cyber.html">LHX</a></td><td>L3Harris</td><td><a href="sectors/defense-cyber.html">Defense &amp; Cyber</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/defense-cyber.html">RTX</a></td><td>RTX Corp</td><td><a href="sectors/defense-cyber.html">Defense &amp; Cyber</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/defense-cyber.html">LDOS</a></td><td>Leidos</td><td><a href="sectors/defense-cyber.html">Defense &amp; Cyber</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/defense-cyber.html">NOC</a></td><td>Northrop Grumman</td><td><a href="sectors/defense-cyber.html">Defense &amp; Cyber</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/biotech-genomics.html">ILMN</a></td><td>Illumina</td><td><a href="sectors/biotech-genomics.html">Biotech &amp; Genomics</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/biotech-genomics.html">CRSP</a></td><td>CRISPR Therapeutics</td><td><a href="sectors/biotech-genomics.html">Biotech &amp; Genomics</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/biotech-genomics.html">BEAM</a></td><td>Beam Therapeutics</td><td><a href="sectors/biotech-genomics.html">Biotech &amp; Genomics</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/biotech-genomics.html">RXRX</a></td><td>Recursion Pharma</td><td><a href="sectors/biotech-genomics.html">Biotech &amp; Genomics</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/biotech-genomics.html">MRNA</a></td><td>Moderna</td><td><a href="sectors/biotech-genomics.html">Biotech &amp; Genomics</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/biotech-genomics.html">REGN</a></td><td>Regeneron</td><td><a href="sectors/biotech-genomics.html">Biotech &amp; Genomics</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/fintech-digital.html">COIN</a></td><td>Coinbase</td><td><a href="sectors/fintech-digital.html">Fintech &amp; Digital</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/fintech-digital.html">SQ</a></td><td>Block</td><td><a href="sectors/fintech-digital.html">Fintech &amp; Digital</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/fintech-digital.html">PYPL</a></td><td>PayPal</td><td><a href="sectors/fintech-digital.html">Fintech &amp; Digital</a></td><td><span class="badge yellow">Watch</span></td></tr>
-            <tr><td><a href="sectors/fintech-digital.html">V</a></td><td>Visa</td><td><a href="sectors/fintech-digital.html">Fintech &amp; Digital</a></td><td><span class="badge yellow">Watch</span></td></tr>
+            <tr><td><a href="sectors/biotech-genomics.html">REGN</a></td><td>Regeneron</td><td><a href="sectors/biotech-genomics.html">Biotech &amp; Genomics</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★★☆</span></td><td><span class="risk-low">Low</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/fintech-digital.html">V</a></td><td>Visa</td><td><a href="sectors/fintech-digital.html">Fintech &amp; Digital</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★★☆</span></td><td><span class="risk-low">Low</span></td><td><span class="up-mod">Moderate</span></td></tr>
+            <tr><td><a href="sectors/semiconductors.html">MU</a></td><td>Micron</td><td><a href="sectors/semiconductors.html">Semiconductors</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-high">High</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/semiconductors.html">AMAT</a></td><td>Applied Materials</td><td><a href="sectors/semiconductors.html">Semiconductors</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-mod">Moderate</span></td></tr>
+            <tr><td><a href="sectors/space.html">ASTS</a></td><td>AST SpaceMobile</td><td><a href="sectors/space.html">Space</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-high">High</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
+            <tr><td><a href="sectors/energy-nuclear.html">CCJ</a></td><td>Cameco</td><td><a href="sectors/energy-nuclear.html">Energy &amp; Nuclear</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/energy-nuclear.html">NEE</a></td><td>NextEra Energy</td><td><a href="sectors/energy-nuclear.html">Energy &amp; Nuclear</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-low">Low</span></td><td><span class="up-mod">Moderate</span></td></tr>
+            <tr><td><a href="sectors/energy-nuclear.html">OKLO</a></td><td>Oklo</td><td><a href="sectors/energy-nuclear.html">Energy &amp; Nuclear</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-high">High</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
+            <tr><td><a href="sectors/energy-nuclear.html">FSLR</a></td><td>First Solar</td><td><a href="sectors/energy-nuclear.html">Energy &amp; Nuclear</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/robotics-automation.html">TSLA</a></td><td>Tesla (Optimus)</td><td><a href="sectors/robotics-automation.html">Robotics &amp; Automation</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-high">High</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
+            <tr><td><a href="sectors/robotics-automation.html">ROK</a></td><td>Rockwell Automation</td><td><a href="sectors/robotics-automation.html">Robotics &amp; Automation</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-mod">Moderate</span></td></tr>
+            <tr><td><a href="sectors/ai-software.html">GOOGL</a></td><td>Alphabet</td><td><a href="sectors/ai-software.html">AI / Software</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-mod">Moderate</span></td></tr>
+            <tr><td><a href="sectors/ai-software.html">PLTR</a></td><td>Palantir</td><td><a href="sectors/ai-software.html">AI / Software</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
+            <tr><td><a href="sectors/defense-cyber.html">LHX</a></td><td>L3Harris</td><td><a href="sectors/defense-cyber.html">Defense &amp; Cyber</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-low">Low</span></td><td><span class="up-mod">Moderate</span></td></tr>
+            <tr><td><a href="sectors/defense-cyber.html">RTX</a></td><td>RTX Corp</td><td><a href="sectors/defense-cyber.html">Defense &amp; Cyber</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-mod">Moderate</span></td></tr>
+            <tr><td><a href="sectors/defense-cyber.html">LDOS</a></td><td>Leidos</td><td><a href="sectors/defense-cyber.html">Defense &amp; Cyber</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-low">Low</span></td><td><span class="up-mod">Moderate</span></td></tr>
+            <tr><td><a href="sectors/biotech-genomics.html">ILMN</a></td><td>Illumina</td><td><a href="sectors/biotech-genomics.html">Biotech &amp; Genomics</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/biotech-genomics.html">CRSP</a></td><td>CRISPR Therapeutics</td><td><a href="sectors/biotech-genomics.html">Biotech &amp; Genomics</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-high">High</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
+            <tr><td><a href="sectors/biotech-genomics.html">BEAM</a></td><td>Beam Therapeutics</td><td><a href="sectors/biotech-genomics.html">Biotech &amp; Genomics</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-high">High</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
+            <tr><td><a href="sectors/biotech-genomics.html">MRNA</a></td><td>Moderna</td><td><a href="sectors/biotech-genomics.html">Biotech &amp; Genomics</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/biotech-genomics.html">RXRX</a></td><td>Recursion Pharma</td><td><a href="sectors/biotech-genomics.html">Biotech &amp; Genomics</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-high">High</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
+            <tr><td><a href="sectors/fintech-digital.html">COIN</a></td><td>Coinbase</td><td><a href="sectors/fintech-digital.html">Fintech &amp; Digital</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-high">High</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
+            <tr><td><a href="sectors/fintech-digital.html">SQ</a></td><td>Block</td><td><a href="sectors/fintech-digital.html">Fintech &amp; Digital</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★★☆☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/semiconductors.html">INTC</a></td><td>Intel</td><td><a href="sectors/semiconductors.html">Semiconductors</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★☆☆☆</span></td><td><span class="risk-high">High</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
+            <tr><td><a href="sectors/space.html">LUNR</a></td><td>Intuitive Machines</td><td><a href="sectors/space.html">Space</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★☆☆☆</span></td><td><span class="risk-high">High</span></td><td><span class="up-high">High</span></td></tr>
+            <tr><td><a href="sectors/energy-nuclear.html">NNE</a></td><td>Nano Nuclear Energy</td><td><a href="sectors/energy-nuclear.html">Energy &amp; Nuclear</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★☆☆☆</span></td><td><span class="risk-high">High</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
+            <tr><td><a href="sectors/robotics-automation.html">BRKS</a></td><td>Brooks Automation</td><td><a href="sectors/robotics-automation.html">Robotics &amp; Automation</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★☆☆☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-mod">Moderate</span></td></tr>
+            <tr><td><a href="sectors/robotics-automation.html">KION</a></td><td>Kion Group</td><td><a href="sectors/robotics-automation.html">Robotics &amp; Automation</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★☆☆☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-mod">Moderate</span></td></tr>
+            <tr><td><a href="sectors/defense-cyber.html">NOC</a></td><td>Northrop Grumman</td><td><a href="sectors/defense-cyber.html">Defense &amp; Cyber</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★☆☆☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-mod">Moderate</span></td></tr>
+            <tr><td><a href="sectors/fintech-digital.html">PYPL</a></td><td>PayPal</td><td><a href="sectors/fintech-digital.html">Fintech &amp; Digital</a></td><td><span class="badge yellow">Watch</span></td><td><span class="conv-stars">★★☆☆☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-mod">Moderate</span></td></tr>
           </tbody>
         </table>
       </div>
 
-      <!-- AVOID -->
+      <!-- AVOID — sorted by conviction desc -->
       <div class="ticker-group">
         <div class="ticker-group-header">
           <span class="badge red">Avoid</span>
@@ -313,14 +313,14 @@
         </div>
         <table class="ticker-table">
           <thead>
-            <tr><th>Ticker</th><th>Company</th><th>Sector</th><th>Signal</th></tr>
+            <tr><th>Ticker</th><th>Company</th><th>Sector</th><th>Signal</th><th>Conv.</th><th>Risk</th><th>Upside</th></tr>
           </thead>
           <tbody>
-            <tr><td><a href="sectors/semiconductors.html">QCOM</a></td><td>Qualcomm</td><td><a href="sectors/semiconductors.html">Semiconductors</a></td><td><span class="badge red">Avoid</span></td></tr>
-            <tr><td><a href="sectors/space.html">MNTS</a></td><td>Momentus</td><td><a href="sectors/space.html">Space</a></td><td><span class="badge red">Avoid</span></td></tr>
-            <tr><td><a href="sectors/ai-software.html">AI</a></td><td>C3.ai</td><td><a href="sectors/ai-software.html">AI / Software</a></td><td><span class="badge red">Avoid</span></td></tr>
-            <tr><td><a href="sectors/defense-cyber.html">BA</a></td><td>Boeing</td><td><a href="sectors/defense-cyber.html">Defense &amp; Cyber</a></td><td><span class="badge red">Avoid</span></td></tr>
-            <tr><td><a href="sectors/fintech-digital.html">MSTR</a></td><td>MicroStrategy / Strategy</td><td><a href="sectors/fintech-digital.html">Fintech &amp; Digital</a></td><td><span class="badge red">Avoid</span></td></tr>
+            <tr><td><a href="sectors/semiconductors.html">QCOM</a></td><td>Qualcomm</td><td><a href="sectors/semiconductors.html">Semiconductors</a></td><td><span class="badge red">Avoid</span></td><td><span class="conv-stars">★★☆☆☆</span></td><td><span class="risk-med">Med</span></td><td><span class="up-mod">Moderate</span></td></tr>
+            <tr><td><a href="sectors/space.html">MNTS</a></td><td>Momentus</td><td><a href="sectors/space.html">Space</a></td><td><span class="badge red">Avoid</span></td><td><span class="conv-stars">★☆☆☆☆</span></td><td><span class="risk-high">High</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
+            <tr><td><a href="sectors/ai-software.html">AI</a></td><td>C3.ai</td><td><a href="sectors/ai-software.html">AI / Software</a></td><td><span class="badge red">Avoid</span></td><td><span class="conv-stars">★☆☆☆☆</span></td><td><span class="risk-high">High</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
+            <tr><td><a href="sectors/defense-cyber.html">BA</a></td><td>Boeing</td><td><a href="sectors/defense-cyber.html">Defense &amp; Cyber</a></td><td><span class="badge red">Avoid</span></td><td><span class="conv-stars">★☆☆☆☆</span></td><td><span class="risk-high">High</span></td><td><span class="up-mod">Moderate</span></td></tr>
+            <tr><td><a href="sectors/fintech-digital.html">MSTR</a></td><td>MicroStrategy / Strategy</td><td><a href="sectors/fintech-digital.html">Fintech &amp; Digital</a></td><td><span class="badge red">Avoid</span></td><td><span class="conv-stars">★☆☆☆☆</span></td><td><span class="risk-high">High</span></td><td><span class="up-asym">Asymmetric</span></td></tr>
           </tbody>
         </table>
       </div>
