@@ -3,18 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Space — Stock Research</title>
+  <title>Space — Ryan Investment Co.</title>
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 
 <nav class="site-nav">
-  <span class="brand">Stock Research</span>
+  <a href="../index.html" class="brand">Ryan Investment Co.</a>
   <ul class="nav-links">
-    <li><a href="semiconductors.html">Semiconductors</a></li>
-    <li><a href="space.html" class="active">Space</a></li>
-    <li><a href="ai-software.html">AI / Software</a></li>
-    <li><a href="defense-cyber.html">Defense &amp; Cyber</a></li>
+    <li><a href="../index.html">Home</a></li>
+    <li class="has-dropdown">
+      <span class="dropdown-trigger">Sectors ▾</span>
+      <ul class="dropdown">
+        <li><a href="semiconductors.html">Semiconductors</a></li>
+        <li><a href="space.html" class="active">Space</a></li>
+        <li><a href="energy-nuclear.html">Energy &amp; Nuclear</a></li>
+        <li><a href="robotics-automation.html">Robotics &amp; Automation</a></li>
+        <li><a href="ai-software.html">AI / Software</a></li>
+        <li><a href="defense-cyber.html">Defense &amp; Cyber</a></li>
+        <li><a href="biotech-genomics.html">Biotech &amp; Genomics</a></li>
+        <li><a href="fintech-digital.html">Fintech &amp; Digital</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -31,6 +41,19 @@
   </div>
 
   <div class="md-content">
+
+    <h2>Stocks</h2>
+    <table>
+      <thead>
+        <tr><th>Ticker</th><th>Company</th><th>Signal</th><th>Thesis</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>RKLB</td><td>Rocket Lab</td><td><span class="badge green">Buy</span></td><td>Vertically integrated launch + spacecraft</td><td>Electron is profitable-per-launch; Neutron is the long-term bet</td></tr>
+        <tr><td>ASTS</td><td>AST SpaceMobile</td><td><span class="badge yellow">Watch</span></td><td>Direct-to-cell satellite broadband</td><td>Telco partnerships de-risk; watch BlockSat launch cadence</td></tr>
+        <tr><td>LUNR</td><td>Intuitive Machines</td><td><span class="badge yellow">Watch</span></td><td>NASA CLPS lunar lander contracts</td><td>Real government revenue; high execution risk per mission</td></tr>
+        <tr><td>MNTS</td><td>Momentus</td><td><span class="badge red">Avoid</span></td><td>Space tug — business model unproven</td><td>Regulatory history and small float; speculative only</td></tr>
+      </tbody>
+    </table>
 
     <h2>Why Now</h2>
     <ul>
@@ -56,51 +79,7 @@
       <li>Starlink IPO rumors (private — any news re-rates public comps)</li>
     </ul>
 
-    <h2>Stocks</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Ticker</th>
-          <th>Company</th>
-          <th>Signal</th>
-          <th>Thesis</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>RKLB</td>
-          <td>Rocket Lab</td>
-          <td><span class="badge green">Buy</span></td>
-          <td>Vertically integrated launch + spacecraft</td>
-          <td>Electron is profitable-per-launch; Neutron is the long-term bet</td>
-        </tr>
-        <tr>
-          <td>ASTS</td>
-          <td>AST SpaceMobile</td>
-          <td><span class="badge yellow">Watch</span></td>
-          <td>Direct-to-cell satellite broadband</td>
-          <td>Telco partnerships de-risk; watch BlockSat launch cadence</td>
-        </tr>
-        <tr>
-          <td>LUNR</td>
-          <td>Intuitive Machines</td>
-          <td><span class="badge yellow">Watch</span></td>
-          <td>NASA CLPS lunar lander contracts</td>
-          <td>Real government revenue; high execution risk per mission</td>
-        </tr>
-        <tr>
-          <td>MNTS</td>
-          <td>Momentus</td>
-          <td><span class="badge red">Avoid</span></td>
-          <td>Space tug — business model unproven</td>
-          <td>Regulatory history and small float; speculative only</td>
-        </tr>
-      </tbody>
-    </table>
-
   </div>
 </main>
-
 </body>
 </html>

@@ -3,32 +3,147 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stock Research</title>
+  <title>Ryan Investment Co.</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
 <nav class="site-nav">
-  <span class="brand">Stock Research</span>
+  <a href="index.html" class="brand">Ryan Investment Co.</a>
   <ul class="nav-links">
-    <li><a href="sectors/semiconductors.html">Semiconductors</a></li>
-    <li><a href="sectors/space.html">Space</a></li>
-    <li><a href="sectors/ai-software.html">AI / Software</a></li>
-    <li><a href="sectors/defense-cyber.html">Defense &amp; Cyber</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li class="has-dropdown">
+      <span class="dropdown-trigger">Sectors ▾</span>
+      <ul class="dropdown">
+        <li><a href="sectors/semiconductors.html">Semiconductors</a></li>
+        <li><a href="sectors/space.html">Space</a></li>
+        <li><a href="sectors/energy-nuclear.html">Energy &amp; Nuclear</a></li>
+        <li><a href="sectors/robotics-automation.html">Robotics &amp; Automation</a></li>
+        <li><a href="sectors/ai-software.html">AI / Software</a></li>
+        <li><a href="sectors/defense-cyber.html">Defense &amp; Cyber</a></li>
+        <li><a href="sectors/biotech-genomics.html">Biotech &amp; Genomics</a></li>
+        <li><a href="sectors/fintech-digital.html">Fintech &amp; Digital</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
 <main class="page-wrap">
 
-  <div class="dashboard-header">
-    <h1>Sectors — ranked by conviction</h1>
-    <span class="as-of">Updated May 2026</span>
+  <!-- ── 1. Conviction Overview ── -->
+  <div class="conviction-section">
+    <div class="dashboard-header">
+      <h1>Investment Opportunity Overview</h1>
+      <span class="as-of">Updated May 2026</span>
+    </div>
+
+    <div class="legend">
+      <span><span class="legend-dot" style="background:#22c55e"></span> High Conviction</span>
+      <span><span class="legend-dot" style="background:#eab308"></span> Monitor</span>
+      <span><span class="legend-dot" style="background:#ef4444"></span> Avoid</span>
+    </div>
+
+    <div class="conviction-chart">
+
+      <a href="sectors/semiconductors.html" class="conviction-row">
+        <div class="conviction-label">
+          <span class="signal-dot green"></span> Semiconductors
+        </div>
+        <div class="conviction-bar-track">
+          <div class="conviction-bar green" style="width:92%"></div>
+        </div>
+        <div class="conviction-tag green">High Conviction</div>
+      </a>
+
+      <a href="sectors/robotics-automation.html" class="conviction-row">
+        <div class="conviction-label">
+          <span class="signal-dot green"></span> Robotics &amp; Automation
+        </div>
+        <div class="conviction-bar-track">
+          <div class="conviction-bar green" style="width:85%"></div>
+        </div>
+        <div class="conviction-tag green">High Conviction</div>
+      </a>
+
+      <a href="sectors/space.html" class="conviction-row">
+        <div class="conviction-label">
+          <span class="signal-dot green"></span> Space
+        </div>
+        <div class="conviction-bar-track">
+          <div class="conviction-bar green" style="width:80%"></div>
+        </div>
+        <div class="conviction-tag green">High Conviction</div>
+      </a>
+
+      <a href="sectors/energy-nuclear.html" class="conviction-row">
+        <div class="conviction-label">
+          <span class="signal-dot green"></span> Energy &amp; Nuclear
+        </div>
+        <div class="conviction-bar-track">
+          <div class="conviction-bar green" style="width:78%"></div>
+        </div>
+        <div class="conviction-tag green">High Conviction</div>
+      </a>
+
+      <a href="sectors/ai-software.html" class="conviction-row">
+        <div class="conviction-label">
+          <span class="signal-dot yellow"></span> AI / Software
+        </div>
+        <div class="conviction-bar-track">
+          <div class="conviction-bar yellow" style="width:66%"></div>
+        </div>
+        <div class="conviction-tag yellow">Monitor</div>
+      </a>
+
+      <a href="sectors/defense-cyber.html" class="conviction-row">
+        <div class="conviction-label">
+          <span class="signal-dot yellow"></span> Defense &amp; Cyber
+        </div>
+        <div class="conviction-bar-track">
+          <div class="conviction-bar yellow" style="width:60%"></div>
+        </div>
+        <div class="conviction-tag yellow">Monitor</div>
+      </a>
+
+      <a href="sectors/biotech-genomics.html" class="conviction-row">
+        <div class="conviction-label">
+          <span class="signal-dot yellow"></span> Biotech &amp; Genomics
+        </div>
+        <div class="conviction-bar-track">
+          <div class="conviction-bar yellow" style="width:54%"></div>
+        </div>
+        <div class="conviction-tag yellow">Monitor</div>
+      </a>
+
+      <a href="sectors/fintech-digital.html" class="conviction-row">
+        <div class="conviction-label">
+          <span class="signal-dot yellow"></span> Fintech &amp; Digital
+        </div>
+        <div class="conviction-bar-track">
+          <div class="conviction-bar yellow" style="width:50%"></div>
+        </div>
+        <div class="conviction-tag yellow">Monitor</div>
+      </a>
+
+    </div>
   </div>
 
-  <div class="legend">
-    <span><span class="legend-dot" style="background:#22c55e"></span> High Conviction — strong thesis, favorable entry</span>
-    <span><span class="legend-dot" style="background:#eab308"></span> Monitor — interesting but wait for clarity</span>
-    <span><span class="legend-dot" style="background:#ef4444"></span> Avoid — headwinds outweigh opportunity</span>
+  <!-- ── 2. Investment Methodology ── -->
+  <div class="methodology">
+    <div class="section-label">Investment Criteria</div>
+    <p>
+      We focus exclusively on sectors exposed to structural megatrends — technological shifts, demographic tailwinds,
+      and policy catalysts that compound over a 5–10 year horizon regardless of short-term market cycles.
+      Selection criteria: addressable market above $500B by 2035, meaningful public market access via liquid equities,
+      early-to-mid adoption curve with asymmetric upside relative to downside risk, and defensible competitive moats
+      (IP, network effects, regulatory barriers, or cost advantages). We exclude commodities, mature consumer industries,
+      and sectors where differentiated alpha is structurally hard to achieve.
+    </p>
+  </div>
+
+  <!-- ── 3. Sector List ── -->
+  <div class="dashboard-header">
+    <h1>Sectors — ranked by conviction</h1>
   </div>
 
   <div class="sector-cards">
@@ -48,6 +163,21 @@
       <div class="card-arrow">›</div>
     </a>
 
+    <a href="sectors/robotics-automation.html" class="sector-card green">
+      <div class="signal-dot green"></div>
+      <div class="card-body">
+        <div class="card-title">Robotics &amp; Automation</div>
+        <div class="card-headline">Physical AI and humanoid robots will reshape labor economics this decade</div>
+        <div class="top-picks">
+          <span class="pick-chip"><span class="signal-dot green" style="width:7px;height:7px;"></span> ISRG</span>
+          <span class="pick-chip"><span class="signal-dot green" style="width:7px;height:7px;"></span> ABB</span>
+          <span class="pick-chip"><span class="signal-dot yellow" style="width:7px;height:7px;"></span> ROK</span>
+          <span class="pick-chip"><span class="signal-dot yellow" style="width:7px;height:7px;"></span> TSLA</span>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
     <a href="sectors/space.html" class="sector-card green">
       <div class="signal-dot green"></div>
       <div class="card-body">
@@ -57,6 +187,21 @@
           <span class="pick-chip"><span class="signal-dot green" style="width:7px;height:7px;"></span> RKLB</span>
           <span class="pick-chip"><span class="signal-dot yellow" style="width:7px;height:7px;"></span> ASTS</span>
           <span class="pick-chip"><span class="signal-dot yellow" style="width:7px;height:7px;"></span> LUNR</span>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a href="sectors/energy-nuclear.html" class="sector-card green">
+      <div class="signal-dot green"></div>
+      <div class="card-body">
+        <div class="card-title">Energy &amp; Nuclear</div>
+        <div class="card-headline">AI data center power demand triggers a once-in-a-generation nuclear renaissance</div>
+        <div class="top-picks">
+          <span class="pick-chip"><span class="signal-dot green" style="width:7px;height:7px;"></span> CEG</span>
+          <span class="pick-chip"><span class="signal-dot green" style="width:7px;height:7px;"></span> VST</span>
+          <span class="pick-chip"><span class="signal-dot yellow" style="width:7px;height:7px;"></span> OKLO</span>
+          <span class="pick-chip"><span class="signal-dot yellow" style="width:7px;height:7px;"></span> NEE</span>
         </div>
       </div>
       <div class="card-arrow">›</div>
@@ -85,6 +230,34 @@
           <span class="pick-chip"><span class="signal-dot green" style="width:7px;height:7px;"></span> CRWD</span>
           <span class="pick-chip"><span class="signal-dot green" style="width:7px;height:7px;"></span> PANW</span>
           <span class="pick-chip"><span class="signal-dot yellow" style="width:7px;height:7px;"></span> LHX</span>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a href="sectors/biotech-genomics.html" class="sector-card yellow">
+      <div class="signal-dot yellow"></div>
+      <div class="card-body">
+        <div class="card-title">Biotech &amp; Genomics</div>
+        <div class="card-headline">AI-accelerated drug discovery compresses development timelines from decades to years</div>
+        <div class="top-picks">
+          <span class="pick-chip"><span class="signal-dot yellow" style="width:7px;height:7px;"></span> ILMN</span>
+          <span class="pick-chip"><span class="signal-dot yellow" style="width:7px;height:7px;"></span> CRSP</span>
+          <span class="pick-chip"><span class="signal-dot yellow" style="width:7px;height:7px;"></span> RXRX</span>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </a>
+
+    <a href="sectors/fintech-digital.html" class="sector-card yellow">
+      <div class="signal-dot yellow"></div>
+      <div class="card-body">
+        <div class="card-title">Fintech &amp; Digital Assets</div>
+        <div class="card-headline">Digital payment rails and regulated crypto access offer asymmetric upside</div>
+        <div class="top-picks">
+          <span class="pick-chip"><span class="signal-dot green" style="width:7px;height:7px;"></span> NU</span>
+          <span class="pick-chip"><span class="signal-dot yellow" style="width:7px;height:7px;"></span> COIN</span>
+          <span class="pick-chip"><span class="signal-dot yellow" style="width:7px;height:7px;"></span> SQ</span>
         </div>
       </div>
       <div class="card-arrow">›</div>
