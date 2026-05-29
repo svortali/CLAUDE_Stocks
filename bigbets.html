@@ -41,241 +41,630 @@
       <div class="bb-eyebrow">High Asymmetry &nbsp;·&nbsp; Limited Downside &nbsp;·&nbsp; Generational Upside</div>
       <h1 class="bb-page-title">Big Bet <span class="bb-orange">Finder</span></h1>
       <p class="bb-intro">These are not consensus picks. Big bets are positions where the market has not priced the optimistic scenario — where most investors see too much risk, and that gap is exactly the opportunity. Each thesis is clear and falsifiable: you will know whether it is working.</p>
-      <p class="bb-meta">Updated May 2026 &nbsp;·&nbsp; 6 active bets &nbsp;·&nbsp; Static content — programmatic updates via Claude API coming soon</p>
+      <p class="bb-meta">Updated May 2026 &nbsp;·&nbsp; 9 active bets &nbsp;·&nbsp; Static content — programmatic updates via Claude API coming soon</p>
     </div>
 
-    <div class="bb-grid">
+    <!-- ── Tab bar ── -->
+    <div class="bb-tabs">
+      <button class="bb-tab active"       onclick="bbShowTab('overview',   this)">Overview</button>
+      <button class="bb-tab bb-tab-calc"  onclick="bbShowTab('calculated', this)">Calculated Bets</button>
+      <button class="bb-tab bb-tab-hc"   onclick="bbShowTab('highconv',   this)">High Conviction</button>
+      <button class="bb-tab bb-tab-moon" onclick="bbShowTab('moonshots',  this)">Moonshots</button>
+    </div>
 
-      <!-- ── IONQ ── -->
-      <div class="bb-card">
-        <div class="bb-card-top">
-          <div>
-            <div class="bb-ticker">IONQ</div>
-            <div class="bb-name">IonQ Inc.</div>
-          </div>
-          <div class="bb-badges">
-            <span class="bb-cat">Quantum Computing</span>
-            <span class="bb-conv bb-spec">Early Speculation</span>
-          </div>
+    <!-- ════════════════ TAB 1: OVERVIEW ════════════════ -->
+    <div id="bb-view-overview" class="bb-tab-view">
+
+      <div class="bb-matrix-section">
+        <div class="bb-matrix-header">
+          <div class="bb-matrix-title">Risk vs. Upside Matrix</div>
+          <div class="bb-matrix-sub">Bubble position = risk (x-axis) and reward (y-axis). Hover to preview thesis.</div>
         </div>
-        <p class="bb-thesis">"Trapped-ion architecture may be the path to fault-tolerant quantum computing — a technology layer that nobody is seriously building for yet, priced accordingly."</p>
-        <div class="bb-cases">
-          <div class="bb-case bb-up">
-            <div class="bb-case-lbl">Upside Case</div>
-            <p>Fault-tolerant QC unlocks exponential acceleration in drug discovery, financial modeling, and materials science. IonQ becomes the AWS of quantum — enterprise SaaS on quantum hardware long before superconducting qubits stabilize. 30–80x from today.</p>
-          </div>
-          <div class="bb-case bb-down">
-            <div class="bb-case-lbl">Risk Case</div>
-            <p>Quantum decoherence remains unsolved at commercial scale. IBM and Google's superconducting approaches win first. IonQ's cash depletes before reaching the throughput thresholds enterprise customers require.</p>
-          </div>
+        <div class="bb-matrix-legend">
+          <span class="bb-ml-dot" style="background:#22d3ee"></span>Calculated Bets&ensp;
+          <span class="bb-ml-dot" style="background:#f59e0b"></span>High Conviction&ensp;
+          <span class="bb-ml-dot" style="background:#ef4444"></span>Moonshots
         </div>
-        <div class="bb-footer">
-          <div class="bb-score">
-            <div class="bb-score-lbl">Reward</div>
-            <div class="bb-bar-wrap"><div class="bb-bar bb-reward" style="width:100%"></div></div>
-            <div class="bb-score-n">10/10</div>
-          </div>
-          <div class="bb-score">
-            <div class="bb-score-lbl">Risk</div>
-            <div class="bb-bar-wrap"><div class="bb-bar bb-risk" style="width:90%"></div></div>
-            <div class="bb-score-n">9/10</div>
-          </div>
-          <div class="bb-horizon">Horizon: <strong>5–8 years</strong></div>
-        </div>
+        <canvas id="bb-matrix-canvas"></canvas>
+        <div id="bb-matrix-tooltip" class="bb-tooltip"></div>
       </div>
 
-      <!-- ── ASTS ── -->
-      <div class="bb-card">
-        <div class="bb-card-top">
-          <div>
-            <div class="bb-ticker">ASTS</div>
-            <div class="bb-name">AST SpaceMobile</div>
-          </div>
-          <div class="bb-badges">
-            <span class="bb-cat">Space Infrastructure</span>
-            <span class="bb-conv bb-building">Building Conviction</span>
-          </div>
-        </div>
-        <p class="bb-thesis">"The only company building a satellite network that talks directly to unmodified smartphones — 5 billion potential subscribers with no new hardware required."</p>
-        <div class="bb-cases">
-          <div class="bb-case bb-up">
-            <div class="bb-case-lbl">Upside Case</div>
-            <p>1–2% penetration of the global unconnected market at $5/month ARPU equals $6–12B in annual revenue. AT&amp;T, Verizon, Vodafone, and Rakuten are already distribution partners — telco infrastructure becomes the distribution moat. 15–40x.</p>
-          </div>
-          <div class="bb-case bb-down">
-            <div class="bb-case-lbl">Risk Case</div>
-            <p>Satellite throughput fails to scale to usable speeds at commercial density. Spectrum interference triggers regulatory challenges in key markets. Cash burn forces dilutive equity raises before profitability. Starlink direct-to-cell outpaces them.</p>
-          </div>
-        </div>
-        <div class="bb-footer">
-          <div class="bb-score">
-            <div class="bb-score-lbl">Reward</div>
-            <div class="bb-bar-wrap"><div class="bb-bar bb-reward" style="width:90%"></div></div>
-            <div class="bb-score-n">9/10</div>
-          </div>
-          <div class="bb-score">
-            <div class="bb-score-lbl">Risk</div>
-            <div class="bb-bar-wrap"><div class="bb-bar bb-risk" style="width:80%"></div></div>
-            <div class="bb-score-n">8/10</div>
-          </div>
-          <div class="bb-horizon">Horizon: <strong>3–5 years</strong></div>
-        </div>
+      <div class="bb-overview-table-header">All Active Positions</div>
+      <table class="bb-overview-table">
+        <thead>
+          <tr>
+            <th>Ticker</th><th>Company</th><th>Category</th>
+            <th>Bucket</th><th>Reward</th><th>Risk</th><th>Horizon</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="bb-ov-ticker bb-ov-calc">JOBY</td><td>Joby Aviation</td>
+            <td>Deep Tech / Transport</td><td><span class="bb-bucket-tag bb-bt-calc">Calculated</span></td>
+            <td>8/10</td><td>7/10</td><td>3–6 yr</td>
+          </tr>
+          <tr>
+            <td class="bb-ov-ticker bb-ov-calc">CRSP</td><td>CRISPR Therapeutics</td>
+            <td>Gene Editing</td><td><span class="bb-bucket-tag bb-bt-calc">Calculated</span></td>
+            <td>9/10</td><td>7/10</td><td>5–8 yr</td>
+          </tr>
+          <tr>
+            <td class="bb-ov-ticker bb-ov-calc">RKLB</td><td>Rocket Lab</td>
+            <td>Space Infrastructure</td><td><span class="bb-bucket-tag bb-bt-calc">Calculated</span></td>
+            <td>8/10</td><td>6/10</td><td>3–5 yr</td>
+          </tr>
+          <tr>
+            <td class="bb-ov-ticker bb-ov-hc">ASTS</td><td>AST SpaceMobile</td>
+            <td>Space Infrastructure</td><td><span class="bb-bucket-tag bb-bt-hc">High Conv.</span></td>
+            <td>9/10</td><td>8/10</td><td>3–5 yr</td>
+          </tr>
+          <tr>
+            <td class="bb-ov-ticker bb-ov-hc">RXRX</td><td>Recursion Pharma</td>
+            <td>AI / Biotech</td><td><span class="bb-bucket-tag bb-bt-hc">High Conv.</span></td>
+            <td>9/10</td><td>8/10</td><td>4–7 yr</td>
+          </tr>
+          <tr>
+            <td class="bb-ov-ticker bb-ov-hc">PLTR</td><td>Palantir Technologies</td>
+            <td>AI / Defense</td><td><span class="bb-bucket-tag bb-bt-hc">High Conv.</span></td>
+            <td>8/10</td><td>7/10</td><td>3–5 yr</td>
+          </tr>
+          <tr>
+            <td class="bb-ov-ticker bb-ov-moon">IONQ</td><td>IonQ Inc.</td>
+            <td>Quantum Computing</td><td><span class="bb-bucket-tag bb-bt-moon">Moonshot</span></td>
+            <td>10/10</td><td>9/10</td><td>5–8 yr</td>
+          </tr>
+          <tr>
+            <td class="bb-ov-ticker bb-ov-moon">OKLO</td><td>Oklo Inc.</td>
+            <td>Clean Energy</td><td><span class="bb-bucket-tag bb-bt-moon">Moonshot</span></td>
+            <td>10/10</td><td>9/10</td><td>6–10 yr</td>
+          </tr>
+          <tr>
+            <td class="bb-ov-ticker bb-ov-moon">NNE</td><td>Nano Nuclear Energy</td>
+            <td>Deep Tech / Energy</td><td><span class="bb-bucket-tag bb-bt-moon">Moonshot</span></td>
+            <td>10/10</td><td>10/10</td><td>8–12 yr</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div><!-- /overview -->
+
+    <!-- ════════════════ TAB 2: CALCULATED BETS ════════════════ -->
+    <div id="bb-view-calculated" class="bb-tab-view" style="display:none">
+
+      <div class="bb-tab-intro bb-tab-intro-calc">
+        <div class="bb-ti-label">Calculated Bets</div>
+        <p>Lower risk within the big-bet universe. Proven traction, visible milestones, and a credible path to scale — still with asymmetric upside that consensus hasn't fully priced in.</p>
       </div>
 
-      <!-- ── RXRX ── -->
-      <div class="bb-card">
-        <div class="bb-card-top">
-          <div>
-            <div class="bb-ticker">RXRX</div>
-            <div class="bb-name">Recursion Pharmaceuticals</div>
+      <div class="bb-grid bb-grid-calc">
+
+        <!-- ── JOBY ── -->
+        <div class="bb-card">
+          <div class="bb-card-top">
+            <div>
+              <div class="bb-ticker">JOBY</div>
+              <div class="bb-name">Joby Aviation</div>
+            </div>
+            <div class="bb-badges">
+              <span class="bb-cat">Deep Tech / Transport</span>
+              <span class="bb-conv bb-building">Building Conviction</span>
+            </div>
           </div>
-          <div class="bb-badges">
-            <span class="bb-cat">AI / Biotech</span>
-            <span class="bb-conv bb-spec">Early Speculation</span>
+          <p class="bb-thesis">"The first eVTOL company with a credible path to FAA type certification — building the aircraft for a 10-minute $25 ride that replaces the 45-minute $60 Uber."</p>
+          <div class="bb-cases">
+            <div class="bb-case bb-up">
+              <div class="bb-case-lbl">Upside Case</div>
+              <p>FAA type certificate secured in 2025–2026, commercial operations begin 2026–2027 with Delta Air Lines. Urban air mobility reaches $1T TAM by 2040; JOBY at 5% share equals $50B in revenue. DoD contracts bridge near-term cash needs. 8–20x.</p>
+            </div>
+            <div class="bb-case bb-down">
+              <div class="bb-case-lbl">Risk Case</div>
+              <p>FAA certification drags to 2030+. Battery energy density proves insufficient for the commercial economics to work at scale. Lilium's bankruptcy raises questions about whether the category is viable at all. Mass adoption never materializes.</p>
+            </div>
+          </div>
+          <div class="bb-footer">
+            <div class="bb-score">
+              <div class="bb-score-lbl">Reward</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-reward" style="width:80%"></div></div>
+              <div class="bb-score-n">8/10</div>
+            </div>
+            <div class="bb-score">
+              <div class="bb-score-lbl">Risk</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-risk" style="width:70%"></div></div>
+              <div class="bb-score-n">7/10</div>
+            </div>
+            <div class="bb-horizon">Horizon: <strong>3–6 years</strong></div>
           </div>
         </div>
-        <p class="bb-thesis">"If biology is data, Recursion owns the largest proprietary biological dataset in the world and an AI trained to find drugs in it — the platform bet on AI-native medicine."</p>
-        <div class="bb-cases">
-          <div class="bb-case bb-up">
-            <div class="bb-case-lbl">Upside Case</div>
-            <p>2–3 AI-designed drugs reach approval and generate platform-level royalties. Top-20 pharmas license the discovery engine rather than build their own. NVIDIA's $50M investment signals the biology-compute intersection is real. 15–30x.</p>
+
+        <!-- ── CRSP ── -->
+        <div class="bb-card">
+          <div class="bb-card-top">
+            <div>
+              <div class="bb-ticker">CRSP</div>
+              <div class="bb-name">CRISPR Therapeutics</div>
+            </div>
+            <div class="bb-badges">
+              <span class="bb-cat">Gene Editing</span>
+              <span class="bb-conv bb-building">Building Conviction</span>
+            </div>
           </div>
-          <div class="bb-case bb-down">
-            <div class="bb-case-lbl">Risk Case</div>
-            <p>Phase 2/3 failures across the pipeline prove biology too complex for current AI models. Capital depletes before any commercial drug. Platform value commoditized by Insilico, Schrödinger, or a hyperscaler entering the space.</p>
+          <p class="bb-thesis">"Casgevy is the proof — the first CRISPR therapy was FDA-approved in 2023. Gene editing as a platform for medicine is no longer theoretical; the pipeline is now the bet."</p>
+          <div class="bb-cases">
+            <div class="bb-case bb-up">
+              <div class="bb-case-lbl">Upside Case</div>
+              <p>5–10 approved therapies by 2035 across indications with no prior curative option. Sickle cell and beta-thalassemia at $2–3M per patient establishes a recurring premium revenue base. Platform licensing to pharma partners. 10–20x from current valuation.</p>
+            </div>
+            <div class="bb-case bb-down">
+              <div class="bb-case-lbl">Risk Case</div>
+              <p>A single off-target editing event causes cancer in a treated patient — one safety signal destroys the platform and the category. Base editing (Beam Therapeutics) proves superior. IRA drug pricing regulation caps the economic model before the pipeline pays off.</p>
+            </div>
+          </div>
+          <div class="bb-footer">
+            <div class="bb-score">
+              <div class="bb-score-lbl">Reward</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-reward" style="width:90%"></div></div>
+              <div class="bb-score-n">9/10</div>
+            </div>
+            <div class="bb-score">
+              <div class="bb-score-lbl">Risk</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-risk" style="width:70%"></div></div>
+              <div class="bb-score-n">7/10</div>
+            </div>
+            <div class="bb-horizon">Horizon: <strong>5–8 years</strong></div>
           </div>
         </div>
-        <div class="bb-footer">
-          <div class="bb-score">
-            <div class="bb-score-lbl">Reward</div>
-            <div class="bb-bar-wrap"><div class="bb-bar bb-reward" style="width:90%"></div></div>
-            <div class="bb-score-n">9/10</div>
+
+        <!-- ── RKLB ── -->
+        <div class="bb-card">
+          <div class="bb-card-top">
+            <div>
+              <div class="bb-ticker">RKLB</div>
+              <div class="bb-name">Rocket Lab</div>
+            </div>
+            <div class="bb-badges">
+              <span class="bb-cat">Space Infrastructure</span>
+              <span class="bb-conv bb-building">Building Conviction</span>
+            </div>
           </div>
-          <div class="bb-score">
-            <div class="bb-score-lbl">Risk</div>
-            <div class="bb-bar-wrap"><div class="bb-bar bb-risk" style="width:80%"></div></div>
-            <div class="bb-score-n">8/10</div>
+          <p class="bb-thesis">"The only pure-play public launch company with a proven track record and vertical integration strategy — Neutron positions Rocket Lab as the challenger to the launch duopoly."</p>
+          <div class="bb-cases">
+            <div class="bb-case bb-up">
+              <div class="bb-case-lbl">Upside Case</div>
+              <p>Neutron captures 10–20% of the medium-lift launch market as Falcon 9 demand outstrips supply. Space Systems division (satellite buses, solar panels, reaction wheels) diversifies revenue to 40%+. Government constellation contracts anchor baseline cash flow. 10–25x.</p>
+            </div>
+            <div class="bb-case bb-down">
+              <div class="bb-case-lbl">Risk Case</div>
+              <p>Neutron development cost overruns exhaust the balance sheet before reaching orbit. Electron is commoditized as ABL, Relativity, or other new entrants scale. SpaceX enters the smallsat rideshare market more aggressively. Revenue growth decelerates before Neutron arrives.</p>
+            </div>
           </div>
-          <div class="bb-horizon">Horizon: <strong>4–7 years</strong></div>
+          <div class="bb-footer">
+            <div class="bb-score">
+              <div class="bb-score-lbl">Reward</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-reward" style="width:80%"></div></div>
+              <div class="bb-score-n">8/10</div>
+            </div>
+            <div class="bb-score">
+              <div class="bb-score-lbl">Risk</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-risk" style="width:60%"></div></div>
+              <div class="bb-score-n">6/10</div>
+            </div>
+            <div class="bb-horizon">Horizon: <strong>3–5 years</strong></div>
+          </div>
         </div>
+
+      </div><!-- /bb-grid-calc -->
+    </div><!-- /calculated -->
+
+    <!-- ════════════════ TAB 3: HIGH CONVICTION ════════════════ -->
+    <div id="bb-view-highconv" class="bb-tab-view" style="display:none">
+
+      <div class="bb-tab-intro bb-tab-intro-hc">
+        <div class="bb-ti-label">High Conviction Bets</div>
+        <p>Clear thesis, large TAM, strong directional evidence — but execution uncertainty is real. The story is compelling and the key variables are in motion, but the outcome is not yet determined.</p>
       </div>
 
-      <!-- ── OKLO ── -->
-      <div class="bb-card">
-        <div class="bb-card-top">
-          <div>
-            <div class="bb-ticker">OKLO</div>
-            <div class="bb-name">Oklo Inc.</div>
+      <div class="bb-grid bb-grid-hc">
+
+        <!-- ── ASTS ── -->
+        <div class="bb-card">
+          <div class="bb-card-top">
+            <div>
+              <div class="bb-ticker">ASTS</div>
+              <div class="bb-name">AST SpaceMobile</div>
+            </div>
+            <div class="bb-badges">
+              <span class="bb-cat">Space Infrastructure</span>
+              <span class="bb-conv bb-building">Building Conviction</span>
+            </div>
           </div>
-          <div class="bb-badges">
-            <span class="bb-cat">Clean Energy</span>
-            <span class="bb-conv bb-spec">Early Speculation</span>
+          <p class="bb-thesis">"The only company building a satellite network that talks directly to unmodified smartphones — 5 billion potential subscribers with no new hardware required."</p>
+          <div class="bb-cases">
+            <div class="bb-case bb-up">
+              <div class="bb-case-lbl">Upside Case</div>
+              <p>1–2% penetration of the global unconnected market at $5/month ARPU equals $6–12B in annual revenue. AT&amp;T, Verizon, Vodafone, and Rakuten are already distribution partners — telco infrastructure becomes the distribution moat. 15–40x.</p>
+            </div>
+            <div class="bb-case bb-down">
+              <div class="bb-case-lbl">Risk Case</div>
+              <p>Satellite throughput fails to scale to usable speeds at commercial density. Spectrum interference triggers regulatory challenges in key markets. Cash burn forces dilutive equity raises before profitability. Starlink direct-to-cell outpaces them.</p>
+            </div>
+          </div>
+          <div class="bb-footer">
+            <div class="bb-score">
+              <div class="bb-score-lbl">Reward</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-reward" style="width:90%"></div></div>
+              <div class="bb-score-n">9/10</div>
+            </div>
+            <div class="bb-score">
+              <div class="bb-score-lbl">Risk</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-risk" style="width:80%"></div></div>
+              <div class="bb-score-n">8/10</div>
+            </div>
+            <div class="bb-horizon">Horizon: <strong>3–5 years</strong></div>
           </div>
         </div>
-        <p class="bb-thesis">"Pre-revenue advanced fission company building factory-manufactured microreactors — directly solving the AI power crisis that no combination of wind and solar can address."</p>
-        <div class="bb-cases">
-          <div class="bb-case bb-up">
-            <div class="bb-case-lbl">Upside Case</div>
-            <p>10+ reactors licensed and deployed by 2032, with 20-year power purchase agreements signed with hyperscalers at $80+/MWh — 2–3x wholesale rates. First-mover SMR advantage locks in data center relationships that compound for a generation. 20–50x.</p>
+
+        <!-- ── RXRX ── -->
+        <div class="bb-card">
+          <div class="bb-card-top">
+            <div>
+              <div class="bb-ticker">RXRX</div>
+              <div class="bb-name">Recursion Pharmaceuticals</div>
+            </div>
+            <div class="bb-badges">
+              <span class="bb-cat">AI / Biotech</span>
+              <span class="bb-conv bb-spec">Early Speculation</span>
+            </div>
           </div>
-          <div class="bb-case bb-down">
-            <div class="bb-case-lbl">Risk Case</div>
-            <p>NRC licensing extends to 2030+. First deployment cost overruns destroy the economic model before replication is proven. A nuclear incident anywhere in the world resets public and regulatory appetite entirely. Pre-revenue company burns out first.</p>
+          <p class="bb-thesis">"If biology is data, Recursion owns the largest proprietary biological dataset in the world and an AI trained to find drugs in it — the platform bet on AI-native medicine."</p>
+          <div class="bb-cases">
+            <div class="bb-case bb-up">
+              <div class="bb-case-lbl">Upside Case</div>
+              <p>2–3 AI-designed drugs reach approval and generate platform-level royalties. Top-20 pharmas license the discovery engine rather than build their own. NVIDIA's $50M investment signals the biology-compute intersection is real. 15–30x.</p>
+            </div>
+            <div class="bb-case bb-down">
+              <div class="bb-case-lbl">Risk Case</div>
+              <p>Phase 2/3 failures across the pipeline prove biology too complex for current AI models. Capital depletes before any commercial drug. Platform value commoditized by Insilico, Schrödinger, or a hyperscaler entering the space.</p>
+            </div>
+          </div>
+          <div class="bb-footer">
+            <div class="bb-score">
+              <div class="bb-score-lbl">Reward</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-reward" style="width:90%"></div></div>
+              <div class="bb-score-n">9/10</div>
+            </div>
+            <div class="bb-score">
+              <div class="bb-score-lbl">Risk</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-risk" style="width:80%"></div></div>
+              <div class="bb-score-n">8/10</div>
+            </div>
+            <div class="bb-horizon">Horizon: <strong>4–7 years</strong></div>
           </div>
         </div>
-        <div class="bb-footer">
-          <div class="bb-score">
-            <div class="bb-score-lbl">Reward</div>
-            <div class="bb-bar-wrap"><div class="bb-bar bb-reward" style="width:100%"></div></div>
-            <div class="bb-score-n">10/10</div>
+
+        <!-- ── PLTR ── -->
+        <div class="bb-card">
+          <div class="bb-card-top">
+            <div>
+              <div class="bb-ticker">PLTR</div>
+              <div class="bb-name">Palantir Technologies</div>
+            </div>
+            <div class="bb-badges">
+              <span class="bb-cat">AI / Defense</span>
+              <span class="bb-conv bb-building">Building Conviction</span>
+            </div>
           </div>
-          <div class="bb-score">
-            <div class="bb-score-lbl">Risk</div>
-            <div class="bb-bar-wrap"><div class="bb-bar bb-risk" style="width:90%"></div></div>
-            <div class="bb-score-n">9/10</div>
+          <p class="bb-thesis">"AIP is the enterprise AI operating system for institutions that can't use off-the-shelf models — the government contract moat is compounding into commercial at an inflection point."</p>
+          <div class="bb-cases">
+            <div class="bb-case bb-up">
+              <div class="bb-case-lbl">Upside Case</div>
+              <p>AIP becomes the standard AI deployment layer for Fortune 500 regulated industries. US government contract ceiling expands as AI becomes military-critical infrastructure. Commercial ARR accelerates through 2028. US dominance in defense AI creates a long-term moat with no foreign equivalent. 8–15x.</p>
+            </div>
+            <div class="bb-case bb-down">
+              <div class="bb-case-lbl">Risk Case</div>
+              <p>Stock trades at 50–80x revenue — any growth deceleration triggers a violent de-rating. Competition from ServiceNow, Microsoft, and hyperscalers narrows AIP's differentiation. Government budget cuts reduce the contract ceiling. The valuation already prices a lot of the good news.</p>
+            </div>
           </div>
-          <div class="bb-horizon">Horizon: <strong>6–10 years</strong></div>
+          <div class="bb-footer">
+            <div class="bb-score">
+              <div class="bb-score-lbl">Reward</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-reward" style="width:80%"></div></div>
+              <div class="bb-score-n">8/10</div>
+            </div>
+            <div class="bb-score">
+              <div class="bb-score-lbl">Risk</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-risk" style="width:70%"></div></div>
+              <div class="bb-score-n">7/10</div>
+            </div>
+            <div class="bb-horizon">Horizon: <strong>3–5 years</strong></div>
+          </div>
         </div>
+
+      </div><!-- /bb-grid-hc -->
+    </div><!-- /highconv -->
+
+    <!-- ════════════════ TAB 4: MOONSHOTS ════════════════ -->
+    <div id="bb-view-moonshots" class="bb-tab-view" style="display:none">
+
+      <div class="bb-tab-intro bb-tab-intro-moon">
+        <div class="bb-ti-label">Moonshots</div>
+        <p>Pure speculation on technologies that don't yet exist at commercial scale. Each position is sized for total loss — the expected value is compelling only if the upside scenario is real. These are 0 or 100x bets.</p>
       </div>
 
-      <!-- ── JOBY ── -->
-      <div class="bb-card">
-        <div class="bb-card-top">
-          <div>
-            <div class="bb-ticker">JOBY</div>
-            <div class="bb-name">Joby Aviation</div>
-          </div>
-          <div class="bb-badges">
-            <span class="bb-cat">Deep Tech / Transport</span>
-            <span class="bb-conv bb-building">Building Conviction</span>
-          </div>
-        </div>
-        <p class="bb-thesis">"The first eVTOL company with a credible path to FAA type certification — building the aircraft for a 10-minute $25 ride that replaces the 45-minute $60 Uber."</p>
-        <div class="bb-cases">
-          <div class="bb-case bb-up">
-            <div class="bb-case-lbl">Upside Case</div>
-            <p>FAA type certificate secured in 2025–2026, commercial operations begin 2026–2027 with Delta Air Lines. Urban air mobility reaches $1T TAM by 2040; JOBY at 5% share equals $50B in revenue. DoD contracts bridge near-term cash needs. 8–20x.</p>
-          </div>
-          <div class="bb-case bb-down">
-            <div class="bb-case-lbl">Risk Case</div>
-            <p>FAA certification drags to 2030+. Battery energy density proves insufficient for the commercial economics to work at scale. Lilium's bankruptcy raises questions about whether the category is viable at all. Mass adoption never materializes.</p>
-          </div>
-        </div>
-        <div class="bb-footer">
-          <div class="bb-score">
-            <div class="bb-score-lbl">Reward</div>
-            <div class="bb-bar-wrap"><div class="bb-bar bb-reward" style="width:80%"></div></div>
-            <div class="bb-score-n">8/10</div>
-          </div>
-          <div class="bb-score">
-            <div class="bb-score-lbl">Risk</div>
-            <div class="bb-bar-wrap"><div class="bb-bar bb-risk" style="width:70%"></div></div>
-            <div class="bb-score-n">7/10</div>
-          </div>
-          <div class="bb-horizon">Horizon: <strong>3–6 years</strong></div>
-        </div>
-      </div>
+      <div class="bb-grid bb-grid-moon">
 
-      <!-- ── CRSP ── -->
-      <div class="bb-card">
-        <div class="bb-card-top">
-          <div>
-            <div class="bb-ticker">CRSP</div>
-            <div class="bb-name">CRISPR Therapeutics</div>
+        <!-- ── IONQ ── -->
+        <div class="bb-card">
+          <div class="bb-card-top">
+            <div>
+              <div class="bb-ticker">IONQ</div>
+              <div class="bb-name">IonQ Inc.</div>
+            </div>
+            <div class="bb-badges">
+              <span class="bb-cat">Quantum Computing</span>
+              <span class="bb-conv bb-spec">Early Speculation</span>
+            </div>
           </div>
-          <div class="bb-badges">
-            <span class="bb-cat">Gene Editing</span>
-            <span class="bb-conv bb-building">Building Conviction</span>
+          <p class="bb-thesis">"Trapped-ion architecture may be the path to fault-tolerant quantum computing — a technology layer that nobody is seriously building for yet, priced accordingly."</p>
+          <div class="bb-cases">
+            <div class="bb-case bb-up">
+              <div class="bb-case-lbl">Upside Case</div>
+              <p>Fault-tolerant QC unlocks exponential acceleration in drug discovery, financial modeling, and materials science. IonQ becomes the AWS of quantum — enterprise SaaS on quantum hardware long before superconducting qubits stabilize. 30–80x from today.</p>
+            </div>
+            <div class="bb-case bb-down">
+              <div class="bb-case-lbl">Risk Case</div>
+              <p>Quantum decoherence remains unsolved at commercial scale. IBM and Google's superconducting approaches win first. IonQ's cash depletes before reaching the throughput thresholds enterprise customers require.</p>
+            </div>
+          </div>
+          <div class="bb-footer">
+            <div class="bb-score">
+              <div class="bb-score-lbl">Reward</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-reward" style="width:100%"></div></div>
+              <div class="bb-score-n">10/10</div>
+            </div>
+            <div class="bb-score">
+              <div class="bb-score-lbl">Risk</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-risk" style="width:90%"></div></div>
+              <div class="bb-score-n">9/10</div>
+            </div>
+            <div class="bb-horizon">Horizon: <strong>5–8 years</strong></div>
           </div>
         </div>
-        <p class="bb-thesis">"Casgevy is the proof — the first CRISPR therapy was FDA-approved in 2023. Gene editing as a platform for medicine is no longer theoretical; the pipeline is now the bet."</p>
-        <div class="bb-cases">
-          <div class="bb-case bb-up">
-            <div class="bb-case-lbl">Upside Case</div>
-            <p>5–10 approved therapies by 2035 across indications with no prior curative option. Sickle cell and beta-thalassemia at $2–3M per patient establishes a recurring premium revenue base. Platform licensing to pharma partners. 10–20x from current valuation.</p>
-          </div>
-          <div class="bb-case bb-down">
-            <div class="bb-case-lbl">Risk Case</div>
-            <p>A single off-target editing event causes cancer in a treated patient — one safety signal destroys the platform and the category. Base editing (Beam Therapeutics) proves superior. IRA drug pricing regulation caps the economic model before the pipeline pays off.</p>
-          </div>
-        </div>
-        <div class="bb-footer">
-          <div class="bb-score">
-            <div class="bb-score-lbl">Reward</div>
-            <div class="bb-bar-wrap"><div class="bb-bar bb-reward" style="width:90%"></div></div>
-            <div class="bb-score-n">9/10</div>
-          </div>
-          <div class="bb-score">
-            <div class="bb-score-lbl">Risk</div>
-            <div class="bb-bar-wrap"><div class="bb-bar bb-risk" style="width:70%"></div></div>
-            <div class="bb-score-n">7/10</div>
-          </div>
-          <div class="bb-horizon">Horizon: <strong>5–8 years</strong></div>
-        </div>
-      </div>
 
-    </div><!-- end bb-grid -->
+        <!-- ── OKLO ── -->
+        <div class="bb-card">
+          <div class="bb-card-top">
+            <div>
+              <div class="bb-ticker">OKLO</div>
+              <div class="bb-name">Oklo Inc.</div>
+            </div>
+            <div class="bb-badges">
+              <span class="bb-cat">Clean Energy</span>
+              <span class="bb-conv bb-spec">Early Speculation</span>
+            </div>
+          </div>
+          <p class="bb-thesis">"Pre-revenue advanced fission company building factory-manufactured microreactors — directly solving the AI power crisis that no combination of wind and solar can address."</p>
+          <div class="bb-cases">
+            <div class="bb-case bb-up">
+              <div class="bb-case-lbl">Upside Case</div>
+              <p>10+ reactors licensed and deployed by 2032, with 20-year power purchase agreements signed with hyperscalers at $80+/MWh — 2–3x wholesale rates. First-mover SMR advantage locks in data center relationships that compound for a generation. 20–50x.</p>
+            </div>
+            <div class="bb-case bb-down">
+              <div class="bb-case-lbl">Risk Case</div>
+              <p>NRC licensing extends to 2030+. First deployment cost overruns destroy the economic model before replication is proven. A nuclear incident anywhere in the world resets public and regulatory appetite entirely. Pre-revenue company burns out first.</p>
+            </div>
+          </div>
+          <div class="bb-footer">
+            <div class="bb-score">
+              <div class="bb-score-lbl">Reward</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-reward" style="width:100%"></div></div>
+              <div class="bb-score-n">10/10</div>
+            </div>
+            <div class="bb-score">
+              <div class="bb-score-lbl">Risk</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-risk" style="width:90%"></div></div>
+              <div class="bb-score-n">9/10</div>
+            </div>
+            <div class="bb-horizon">Horizon: <strong>6–10 years</strong></div>
+          </div>
+        </div>
+
+        <!-- ── NNE ── -->
+        <div class="bb-card">
+          <div class="bb-card-top">
+            <div>
+              <div class="bb-ticker">NNE</div>
+              <div class="bb-name">Nano Nuclear Energy</div>
+            </div>
+            <div class="bb-badges">
+              <span class="bb-cat">Deep Tech / Energy</span>
+              <span class="bb-conv bb-spec">Early Speculation</span>
+            </div>
+          </div>
+          <p class="bb-thesis">"Ultra-compact, portable nuclear microreactors for remote power — the most speculative bet on energy's last frontier, priced like almost nobody believes it will work."</p>
+          <div class="bb-cases">
+            <div class="bb-case bb-up">
+              <div class="bb-case-lbl">Upside Case</div>
+              <p>Department of Defense contracts for portable nuclear power at remote bases and forward operating locations. Commercial licensing for Arctic resource extraction, maritime, and disaster response. First-mover in a category with no viable competitors today. 50–100x or zero.</p>
+            </div>
+            <div class="bb-case bb-down">
+              <div class="bb-case-lbl">Risk Case</div>
+              <p>NRC regulatory pathway for truly portable nuclear reactors is undefined and could take 15+ years to establish. Technology unproven at any meaningful scale. Enriched uranium fuel sourcing faces geopolitical constraints. Zero revenue and minimal infrastructure — a pure option on a breakthrough.</p>
+            </div>
+          </div>
+          <div class="bb-footer">
+            <div class="bb-score">
+              <div class="bb-score-lbl">Reward</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-reward" style="width:100%"></div></div>
+              <div class="bb-score-n">10/10</div>
+            </div>
+            <div class="bb-score">
+              <div class="bb-score-lbl">Risk</div>
+              <div class="bb-bar-wrap"><div class="bb-bar bb-risk" style="width:100%"></div></div>
+              <div class="bb-score-n">10/10</div>
+            </div>
+            <div class="bb-horizon">Horizon: <strong>8–12 years</strong></div>
+          </div>
+        </div>
+
+      </div><!-- /bb-grid-moon -->
+    </div><!-- /moonshots -->
+
   </main>
 </div>
+
+<script>
+var BB_PICKS = [
+  {t:'JOBY', n:'Joby Aviation',         bucket:'calc', reward:8,  risk:7,  thesis:'FAA type cert + Delta deal — the first commercially viable eVTOL aircraft.'},
+  {t:'CRSP', n:'CRISPR Therapeutics',   bucket:'calc', reward:9,  risk:7,  thesis:'Casgevy is the first approved CRISPR therapy. Gene editing as a platform is no longer theoretical.'},
+  {t:'RKLB', n:'Rocket Lab',            bucket:'calc', reward:8,  risk:6,  thesis:'Vertically integrated launch + Neutron — the challenger to the launch duopoly.'},
+  {t:'ASTS', n:'AST SpaceMobile',       bucket:'hc',   reward:9,  risk:8,  thesis:'5B potential subscribers, no new hardware. Telco partners confirmed — throughput is the unknown.'},
+  {t:'RXRX', n:'Recursion Pharma',      bucket:'hc',   reward:9,  risk:8,  thesis:'Largest proprietary biology dataset + NVIDIA-backed AI. The platform bet on AI-native medicine.'},
+  {t:'PLTR', n:'Palantir',              bucket:'hc',   reward:8,  risk:7,  thesis:'AIP is the enterprise AI layer for regulated industries. Government moat compounding into commercial.'},
+  {t:'IONQ', n:'IonQ Inc.',             bucket:'moon', reward:10, risk:9,  thesis:'Trapped-ion QC may be the path to fault-tolerant quantum. Priced like nobody believes it.'},
+  {t:'OKLO', n:'Oklo Inc.',             bucket:'moon', reward:10, risk:9,  thesis:'Factory-manufactured microreactors solving the AI power crisis before wind/solar can.'},
+  {t:'NNE',  n:'Nano Nuclear Energy',   bucket:'moon', reward:10, risk:10, thesis:'Ultra-compact portable nuclear. The most speculative energy bet — 50–100x or zero.'}
+];
+
+var BB_COLORS = { calc:'#22d3ee', hc:'#f59e0b', moon:'#ef4444' };
+var BB_GLOW   = { calc:'rgba(34,211,238,0.14)', hc:'rgba(245,158,11,0.14)', moon:'rgba(239,68,68,0.14)' };
+var BB_FILL   = { calc:'rgba(34,211,238,0.09)', hc:'rgba(245,158,11,0.09)', moon:'rgba(239,68,68,0.09)' };
+
+function bbShowTab(name, btn) {
+  document.querySelectorAll('.bb-tab-view').forEach(function(v) { v.style.display = 'none'; });
+  document.querySelectorAll('.bb-tab').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('bb-view-' + name).style.display = '';
+  btn.classList.add('active');
+  if (name === 'overview') requestAnimationFrame(bbDrawMatrix);
+}
+
+function bbDrawMatrix() {
+  var canvas = document.getElementById('bb-matrix-canvas');
+  if (!canvas) return;
+  var dpr = window.devicePixelRatio || 1;
+  var w   = canvas.parentElement.clientWidth - 48;
+  var h   = 300;
+  canvas.width        = w * dpr;
+  canvas.height       = h * dpr;
+  canvas.style.width  = w + 'px';
+  canvas.style.height = h + 'px';
+
+  var ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+
+  var pad = { top:24, right:24, bottom:44, left:52 };
+  var cw  = w - pad.left - pad.right;
+  var ch  = h - pad.top  - pad.bottom;
+
+  ctx.fillStyle = '#0d0c15';
+  ctx.fillRect(0, 0, w, h);
+
+  /* grid lines */
+  ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+  ctx.lineWidth = 1;
+  for (var i = 2; i <= 10; i += 2) {
+    var gx = pad.left + (i / 10) * cw;
+    ctx.beginPath(); ctx.moveTo(gx, pad.top); ctx.lineTo(gx, pad.top + ch); ctx.stroke();
+    var gy = pad.top + ch - (i / 10) * ch;
+    ctx.beginPath(); ctx.moveTo(pad.left, gy); ctx.lineTo(pad.left + cw, gy); ctx.stroke();
+  }
+
+  /* tick labels */
+  ctx.fillStyle = 'rgba(136,146,164,0.5)';
+  ctx.font = '10px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif';
+  for (var j = 2; j <= 10; j += 2) {
+    ctx.textAlign = 'center';
+    ctx.fillText(j, pad.left + (j / 10) * cw, pad.top + ch + 14);
+    ctx.textAlign = 'right';
+    ctx.fillText(j, pad.left - 6, pad.top + ch - (j / 10) * ch + 4);
+  }
+
+  /* axis labels */
+  ctx.fillStyle = 'rgba(136,146,164,0.75)';
+  ctx.font = '11px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('Risk →', pad.left + cw / 2, pad.top + ch + 32);
+  ctx.save();
+  ctx.translate(14, pad.top + ch / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText('Reward →', 0, 0);
+  ctx.restore();
+
+  /* bubbles */
+  var r = 20;
+  BB_PICKS.forEach(function(p) {
+    var x = pad.left + (p.risk   / 10) * cw;
+    var y = pad.top  + ch - (p.reward / 10) * ch;
+
+    ctx.beginPath();
+    ctx.arc(x, y, r + 6, 0, Math.PI * 2);
+    ctx.fillStyle = BB_GLOW[p.bucket];
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fillStyle   = BB_FILL[p.bucket];
+    ctx.strokeStyle = BB_COLORS[p.bucket];
+    ctx.lineWidth   = 1.5;
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.fillStyle = BB_COLORS[p.bucket];
+    ctx.font      = 'bold 10px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(p.t, x, y + 4);
+  });
+}
+
+/* tooltip */
+(function() {
+  var canvas  = document.getElementById('bb-matrix-canvas');
+  var tooltip = document.getElementById('bb-matrix-tooltip');
+
+  canvas.addEventListener('mousemove', function(e) {
+    var cRect = canvas.getBoundingClientRect();
+    var sRect = canvas.parentElement.getBoundingClientRect();
+    var mx    = e.clientX - cRect.left;
+    var my    = e.clientY - cRect.top;
+    var w     = canvas.offsetWidth;
+    var h     = canvas.offsetHeight;
+    var pad   = { top:24, right:24, bottom:44, left:52 };
+    var cw    = w - pad.left - pad.right;
+    var ch    = h - pad.top  - pad.bottom;
+
+    var hit = null;
+    BB_PICKS.forEach(function(p) {
+      var x = pad.left + (p.risk   / 10) * cw;
+      var y = pad.top  + ch - (p.reward / 10) * ch;
+      var dx = mx - x, dy = my - y;
+      if (dx * dx + dy * dy < 484) hit = p; /* r=22 */
+    });
+
+    if (hit) {
+      var ttL = e.clientX - sRect.left + 14;
+      var ttT = e.clientY - sRect.top  - 8;
+      tooltip.style.left    = ttL + 'px';
+      tooltip.style.top     = ttT + 'px';
+      tooltip.style.display = 'block';
+      tooltip.innerHTML     = '<strong>' + hit.t + ' — ' + hit.n + '</strong>' + hit.thesis;
+      canvas.style.cursor   = 'pointer';
+    } else {
+      tooltip.style.display = 'none';
+      canvas.style.cursor   = 'default';
+    }
+  });
+
+  canvas.addEventListener('mouseleave', function() {
+    tooltip.style.display = 'none';
+    canvas.style.cursor   = 'default';
+  });
+})();
+
+window.addEventListener('load', bbDrawMatrix);
+window.addEventListener('resize', function() {
+  var ov = document.getElementById('bb-view-overview');
+  if (ov && ov.style.display !== 'none') bbDrawMatrix();
+});
+</script>
+
 </body>
 </html>

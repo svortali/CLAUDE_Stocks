@@ -617,6 +617,161 @@ a:hover { text-decoration: underline; }
 .bb-horizon { margin-left: auto; font-size: 11px; color: var(--muted); }
 .bb-horizon strong { color: var(--text); font-weight: 600; }
 
+/* ── Big Bet — Tab system ── */
+.bb-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+
+.bb-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.bb-tab:hover { color: var(--text); }
+.bb-tab.active                 { color: #f97316; border-bottom-color: #f97316; }
+.bb-tab-calc.active            { color: #22d3ee; border-bottom-color: #22d3ee; }
+.bb-tab-hc.active              { color: #f59e0b; border-bottom-color: #f59e0b; }
+.bb-tab-moon.active            { color: #ef4444; border-bottom-color: #ef4444; }
+
+/* ── Tab intro banners ── */
+.bb-tab-intro {
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  margin-bottom: 20px;
+  border: 1px solid;
+}
+
+.bb-ti-label {
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px;
+}
+
+.bb-tab-intro p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+.bb-tab-intro-calc { background: rgba(34,211,238,0.04); border-color: rgba(34,211,238,0.2); }
+.bb-tab-intro-calc .bb-ti-label { color: #22d3ee; }
+
+.bb-tab-intro-hc   { background: rgba(245,158,11,0.04); border-color: rgba(245,158,11,0.2); }
+.bb-tab-intro-hc   .bb-ti-label { color: #f59e0b; }
+
+.bb-tab-intro-moon { background: rgba(239,68,68,0.04); border-color: rgba(239,68,68,0.2); }
+.bb-tab-intro-moon .bb-ti-label { color: #ef4444; }
+
+/* ── Per-tab card accent overrides ── */
+.bb-grid-calc .bb-card         { border-left-color: #22d3ee; }
+.bb-grid-calc .bb-card:hover   { border-top-color: #22d3ee; border-right-color: #22d3ee; border-bottom-color: #22d3ee; }
+.bb-grid-calc .bb-ticker       { color: #22d3ee; }
+.bb-grid-calc .bb-cat          { background: rgba(34,211,238,0.1); color: #22d3ee; }
+.bb-grid-calc .bb-thesis       { border-left-color: rgba(34,211,238,0.35); }
+
+.bb-grid-hc .bb-card           { border-left-color: #f59e0b; }
+.bb-grid-hc .bb-card:hover     { border-top-color: #f59e0b; border-right-color: #f59e0b; border-bottom-color: #f59e0b; }
+.bb-grid-hc .bb-ticker         { color: #f59e0b; }
+.bb-grid-hc .bb-cat            { background: rgba(245,158,11,0.1); color: #f59e0b; }
+.bb-grid-hc .bb-thesis         { border-left-color: rgba(245,158,11,0.35); }
+
+.bb-grid-moon .bb-card         { border-left-color: #ef4444; background: #110a0a; }
+.bb-grid-moon .bb-card:hover   { border-top-color: #ef4444; border-right-color: #ef4444; border-bottom-color: #ef4444; background: #160d0d; }
+.bb-grid-moon .bb-ticker       { color: #ef4444; }
+.bb-grid-moon .bb-cat          { background: rgba(239,68,68,0.1); color: #ef4444; }
+.bb-grid-moon .bb-thesis       { border-left-color: rgba(239,68,68,0.35); }
+.bb-grid-moon .bb-footer       { border-top-color: rgba(239,68,68,0.2); }
+
+/* ── Overview — Risk/Reward matrix ── */
+.bb-matrix-section {
+  background: #0d0c15;
+  border: 1px solid #2a2440;
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.bb-matrix-header { margin-bottom: 10px; }
+.bb-matrix-title  { font-size: 14px; font-weight: 700; color: var(--text); }
+.bb-matrix-sub    { font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+.bb-matrix-legend {
+  display: flex; gap: 4px; align-items: center; flex-wrap: wrap;
+  font-size: 11px; color: var(--muted); margin-bottom: 14px;
+}
+
+.bb-ml-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  display: inline-block; vertical-align: middle; margin-right: 4px;
+}
+
+#bb-matrix-canvas {
+  display: block; width: 100%; height: 300px;
+  border-radius: 4px; cursor: default;
+}
+
+.bb-tooltip {
+  position: absolute; display: none;
+  background: #1a1d27;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 13px;
+  font-size: 12px; color: var(--text);
+  max-width: 220px; line-height: 1.6;
+  pointer-events: none; z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.bb-tooltip strong { display: block; margin-bottom: 5px; font-size: 12px; }
+
+/* ── Overview summary table ── */
+.bb-overview-table-header {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--muted); margin-bottom: 12px;
+}
+
+.bb-overview-table {
+  width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 24px;
+}
+
+.bb-overview-table th {
+  text-align: left; font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted);
+  padding: 8px 12px; border-bottom: 1px solid var(--border);
+}
+
+.bb-overview-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(42,45,58,0.5);
+  vertical-align: middle;
+}
+
+.bb-overview-table tr:last-child td { border-bottom: none; }
+.bb-overview-table tr:hover td      { background: rgba(255,255,255,0.02); }
+
+.bb-ov-ticker { font-weight: 800; font-size: 14px; }
+.bb-ov-calc   { color: #22d3ee; }
+.bb-ov-hc     { color: #f59e0b; }
+.bb-ov-moon   { color: #ef4444; }
+
+.bb-bucket-tag {
+  font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;
+}
+
+.bb-bt-calc { background: rgba(34,211,238,0.1); color: #22d3ee; }
+.bb-bt-hc   { background: rgba(245,158,11,0.1); color: #f59e0b; }
+.bb-bt-moon { background: rgba(239,68,68,0.1);  color: #ef4444; }
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .header-title { font-size: 17px; }
