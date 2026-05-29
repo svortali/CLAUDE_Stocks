@@ -533,6 +533,90 @@ a:hover { text-decoration: underline; }
 .sim-pct { font-weight: 700; color: var(--accent); }
 .sim-sector-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 
+/* ── Big Bet Finder ── */
+.bb-page-header {
+  margin-bottom: 28px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+}
+.bb-eyebrow {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.14em; color: #f97316; margin-bottom: 10px;
+}
+.bb-page-title {
+  font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px;
+}
+.bb-orange { color: #f97316; }
+.bb-intro { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 640px; margin-bottom: 8px; }
+.bb-meta { font-size: 11px; color: var(--muted); opacity: 0.55; }
+
+.bb-grid { display: flex; flex-direction: column; gap: 16px; }
+
+.bb-card {
+  background: #0d0c15;
+  border: 1px solid #2a2440;
+  border-left: 4px solid #f97316;
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.bb-card:hover {
+  border-top-color: #f97316;
+  border-right-color: #f97316;
+  border-bottom-color: #f97316;
+  background: #110f1c;
+}
+.bb-card-top {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; margin-bottom: 12px; gap: 12px;
+}
+.bb-ticker { font-size: 20px; font-weight: 800; color: #f97316; letter-spacing: 0.03em; }
+.bb-name   { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.bb-badges { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+.bb-cat {
+  font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  background: rgba(249,115,22,0.12); color: #f97316;
+  text-transform: uppercase; letter-spacing: 0.07em; white-space: nowrap;
+}
+.bb-conv {
+  font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.07em; white-space: nowrap;
+}
+.bb-spec     { background: rgba(239,68,68,0.12);  color: #ef4444; }
+.bb-building { background: rgba(234,179,8,0.12);  color: #eab308; }
+.bb-high-c   { background: rgba(34,197,94,0.12);  color: #22c55e; }
+.bb-thesis {
+  font-size: 14px; color: var(--text); font-style: italic; line-height: 1.55;
+  margin-bottom: 16px; padding-left: 14px; border-left: 2px solid rgba(249,115,22,0.35);
+}
+.bb-cases { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+.bb-case  { padding: 12px 14px; border-radius: 6px; }
+.bb-up   { background: rgba(34,197,94,0.05); border: 1px solid rgba(34,197,94,0.18); }
+.bb-down { background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.18); }
+.bb-case-lbl {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; margin-bottom: 5px;
+}
+.bb-up   .bb-case-lbl { color: #22c55e; }
+.bb-down .bb-case-lbl { color: #ef4444; }
+.bb-case p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.bb-footer {
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  padding-top: 14px; border-top: 1px solid #2a2440;
+}
+.bb-score { display: flex; align-items: center; gap: 8px; }
+.bb-score-lbl {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--muted); min-width: 44px;
+}
+.bb-bar-wrap { width: 72px; height: 5px; background: rgba(255,255,255,0.07); border-radius: 3px; overflow: hidden; }
+.bb-bar    { height: 100%; border-radius: 3px; }
+.bb-reward { background: linear-gradient(90deg, #22c55e, #4ade80); }
+.bb-risk   { background: linear-gradient(90deg, #ef4444, #f87171); }
+.bb-score-n { font-size: 11px; font-weight: 700; color: var(--text); min-width: 28px; }
+.bb-horizon { margin-left: auto; font-size: 11px; color: var(--muted); }
+.bb-horizon strong { color: var(--text); font-weight: 600; }
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .header-title { font-size: 17px; }
