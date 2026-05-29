@@ -45,98 +45,593 @@
         <p class="mp-subtitle">Curated news and analysis for the Ryan Investment Co. thesis — only the macro shifts, sector moves, and ticker events that actually matter to the positions.</p>
         <div class="mp-meta">Week of May 26, 2026 &nbsp;·&nbsp; Static content — AI-powered refresh coming soon</div>
       </div>
-      <button class="mp-refresh-btn" disabled title="Coming soon — AI-powered updates in development">
-        ↻ Refresh
-      </button>
+      <button class="mp-refresh-btn" disabled title="Coming soon — AI-powered updates in development">↻ Refresh</button>
     </div>
 
-    <div class="mp-grid">
+    <!-- ── Tab bar ── -->
+    <div class="mp-tabs">
+      <button class="mp-tab active"   onclick="mpShow('newsroom',  this)">News Room</button>
+      <button class="mp-tab"          onclick="mpShow('earnings',  this)">Earnings Watch</button>
+      <button class="mp-tab"          onclick="mpShow('intel',     this)">Market Intel</button>
+      <button class="mp-tab"          onclick="mpShow('catalysts', this)">Ticker &amp; Catalysts</button>
+    </div>
 
-      <!-- ════════ MACRO & MARKET ════════ -->
-      <div class="mp-block mp-block-macro">
-        <div class="mp-block-head">
-          <div class="mp-block-dot"></div>
-          <div class="mp-block-title">Macro &amp; Market</div>
-        </div>
+    <!-- ══════════════════════════════════════════
+         TAB 1 — NEWS ROOM
+    ══════════════════════════════════════════ -->
+    <div id="mp-view-newsroom" class="mp-tab-view">
 
-        <div class="mp-item">
-          <div class="mp-headline">Fed holds at 4.25% — first cut now consensus for September</div>
-          <p class="mp-context">The May FOMC meeting delivered the expected hold. Services CPI remains sticky at 3.1%, but the core goods deflation trend is intact. Fed funds futures are pricing two 25bp cuts in H2 2026 — historically the period between the last hike and first cut has been constructive for long-duration growth assets. Pre-revenue names (OKLO, IONQ, NNE) have the most DCF sensitivity to rate relief.</p>
-          <span class="mp-impact mp-bull">Bullish — rate-sensitive names</span>
-        </div>
-
-        <div class="mp-item">
-          <div class="mp-headline">S&P 500 flat YTD after Q1 rally fades on tariff noise</div>
-          <p class="mp-context">After a strong January–February on AI earnings beats, the index has given back gains. The key signal is in earnings calls, not price: Microsoft, Google, and Meta all raised 2026 AI capex guidance. Total announced AI infrastructure spend by the big five now exceeds $350B for the year. Concentration risk remains elevated — top 10 names are 38% of the index. Dispersion favors stock pickers.</p>
-          <span class="mp-impact mp-neut">Neutral — watch AI capex follow-through</span>
-        </div>
-
-        <div class="mp-item">
-          <div class="mp-headline">10-year Treasury at 4.35% — yield curve steepening</div>
-          <p class="mp-context">The yield curve has steepened slightly as long-end rates drift down from 2025 highs. This is constructive for speculative growth; dollar index softening 4% from late-2025 peak is also a tailwind for EM-exposed plays like NU (Brazil/Mexico/Colombia revenue). Watch the yen carry trade — an aggressive BoJ move could briefly reprice risk assets as it did in August 2024.</p>
-          <span class="mp-impact mp-bull">Bullish — EM, growth, and dollar-sensitive names</span>
-        </div>
-
+      <div class="mp-banner">
+        ⚡ Static content — real-time AI-powered sources coming soon. Links will be live when connected to the Claude API.
       </div>
 
-      <!-- ════════ SECTOR HIGHLIGHTS ════════ -->
-      <div class="mp-block mp-block-sector">
-        <div class="mp-block-head">
-          <div class="mp-block-dot"></div>
-          <div class="mp-block-title">Sector Highlights</div>
+      <!-- X / Twitter -->
+      <div class="mp-source-block">
+        <div class="mp-source-head">
+          <div class="mp-source-icon mp-src-x">𝕏</div>
+          <div class="mp-source-name">X / Twitter</div>
+          <div class="mp-source-count">3 items</div>
         </div>
 
-        <div class="mp-item">
-          <div class="mp-headline">NRC releases modernized SMR licensing framework — 18 months faster</div>
-          <p class="mp-context">The Nuclear Regulatory Commission published a draft "risk-informed, technology-neutral" review pathway for sub-300MW advanced fission reactors. The new framework could compress the standard 8–10 year licensing timeline to 5–6 years for well-prepared applications. This is the most significant regulatory development for OKLO and NNE in two years — the licensing drag has been the primary bear case for both names since IPO.</p>
-          <span class="mp-impact mp-bull">Bullish — OKLO, NNE, nuclear sector</span>
+        <div class="mp-news-card">
+          <div class="mp-news-headline">SpaceX completes Starship Flight 9 — fully nominal mission including booster catch and ship splashdown</div>
+          <div class="mp-news-summary">The ninth integrated Starship test flight achieved the first fully end-to-end nominal mission profile. Super Heavy was caught by the Mechazilla arms for the third consecutive time. A 10+ annual launch cadence targeting 100t-to-LEO payloads now begins.</div>
+          <div class="mp-news-meta">
+            <span class="mp-news-tag">→ Space</span>
+            <span class="mp-news-date">3 days ago</span>
+            <a href="#" target="_blank" class="mp-news-link">Read →</a>
+          </div>
         </div>
 
-        <div class="mp-item">
-          <div class="mp-headline">Blackwell GB200 shipping at volume — AI chip tightness persists into 2027</div>
-          <p class="mp-context">TSMC and NVIDIA confirmed Blackwell NVL72 systems are shipping at volume in Q2 2026, but demand continues to outpace supply by 12–18 months. Data center operators are pre-ordering capacity through 2027. This sustains the AI infrastructure capex cycle across every layer of the stack: PLTR (more enterprises can afford AIP deployments), RXRX (inference costs for biology AI are falling), and semiconductor names broadly.</p>
-          <span class="mp-impact mp-bull">Bullish — AI infrastructure ecosystem</span>
+        <div class="mp-news-card">
+          <div class="mp-news-headline">Jensen Huang at Computex 2026: Blackwell Ultra announced with 3× memory bandwidth — shipping Q4 2026</div>
+          <div class="mp-news-summary">NVIDIA unveiled the Blackwell Ultra GPU at Computex, maintaining a 1-year generational cadence. Current Blackwell supply remains constrained through 2026, meaning both generations will sell at full pricing. The compute advantage for AI training and inference extends into 2027.</div>
+          <div class="mp-news-meta">
+            <span class="mp-news-tag">→ Semiconductors</span>
+            <span class="mp-news-date">This week</span>
+            <a href="#" target="_blank" class="mp-news-link">Read →</a>
+          </div>
         </div>
 
-        <div class="mp-item">
-          <div class="mp-headline">JOBY completes Stage 4 FAA conformity — type certificate back on 2026 track</div>
-          <p class="mp-context">Joby Aviation cleared Stage 4 conformity inspections in April, leaving one final stage before type certification. The company reaffirmed a 2026 type certificate target and holds 3,400+ pre-delivery reservations from Delta Air Lines. Separately, EASA certified a European eVTOL competitor — validating the regulatory pathway and the category more broadly. Stage 5 flight testing is underway.</p>
-          <span class="mp-impact mp-bull">Bullish — JOBY</span>
+        <div class="mp-news-card">
+          <div class="mp-news-headline">IONQ CEO confirms Microsoft and DARPA as anchor customers for the 64 AQ commercial system on Azure Quantum</div>
+          <div class="mp-news-summary">IonQ has begun booking enterprise pilots for its 64 algorithmic qubit system. The CEO publicly named the first revenue-generating customers at this qubit level, marking the transition from "capability demo" to "commercial deployment" — the key narrative inflection for the stock.</div>
+          <div class="mp-news-meta">
+            <span class="mp-news-tag">→ IONQ</span>
+            <span class="mp-news-date">2 days ago</span>
+            <a href="#" target="_blank" class="mp-news-link">Read →</a>
+          </div>
         </div>
-
       </div>
 
-      <!-- ════════ TICKER WATCH ════════ -->
-      <div class="mp-block mp-block-ticker">
-        <div class="mp-block-head">
-          <div class="mp-block-dot"></div>
-          <div class="mp-block-title">Ticker Watch</div>
+      <!-- YouTube -->
+      <div class="mp-source-block">
+        <div class="mp-source-head">
+          <div class="mp-source-icon mp-src-yt">▶</div>
+          <div class="mp-source-name">YouTube</div>
+          <div class="mp-source-count">3 items</div>
         </div>
 
-        <div class="mp-item">
-          <div class="mp-headline">ASTS — Block 2 satellites delivering 14–21 Mbps on standard handsets</div>
-          <p class="mp-context">AST SpaceMobile's five Block 2 BlueBird satellites are operational and delivering median download speeds of 14–21 Mbps on unmodified 4G handsets in 40 AT&amp;T markets across North America. Management guided for 20+ Block 2 satellites in orbit by Q4 2026 — the threshold management has defined for commercial viability at scale. The data closes the throughput bear case for near-term coverage zones.</p>
-          <span class="mp-impact mp-bull">Bullish — execution de-risks the thesis</span>
+        <div class="mp-news-card">
+          <div class="mp-news-headline">ARK Invest raises ASTS price target to $45 — Block 2 throughput data exceeds original model assumptions</div>
+          <div class="mp-news-summary">ARK updated its SpaceMobile valuation after the Block 2 latency and throughput data was published, raising its per-subscriber revenue assumption for coverage zones. The firm now sees 2027 as the year of commercial breakeven and 2029 as the first year of meaningful free cash flow.</div>
+          <div class="mp-news-meta">
+            <span class="mp-news-tag">→ ASTS</span>
+            <span class="mp-news-date">This week</span>
+            <a href="#" target="_blank" class="mp-news-link">Read →</a>
+          </div>
         </div>
 
-        <div class="mp-item">
-          <div class="mp-headline">IONQ — 64 AQ system live on AWS Braket and Azure Quantum</div>
-          <p class="mp-context">IonQ deployed its first 64 algorithmic qubit system through AWS and Microsoft Azure Quantum in May — three quarters ahead of published roadmap. The 64 AQ threshold is where quantum advantage over classical compute starts to appear in narrow domains (quantum chemistry, combinatorial optimization). Revenue is still pre-commercial-scale, but consistent roadmap execution is exactly the bull case: IonQ is the only public company reliably hitting quantum performance milestones.</p>
-          <span class="mp-impact mp-bull">Bullish — roadmap credibility established</span>
+        <div class="mp-news-card">
+          <div class="mp-news-headline">Real Vision: The SMR bull case — why 2026–2028 is the advanced fission inflection window</div>
+          <div class="mp-news-summary">90-minute deep dive into advanced fission economics, featuring analysis of the NRC's modernized licensing framework and what it means for deployment timelines. Oklo, TerraPower, and NuScale are examined. The conclusion: the regulatory risk removal is as important as the technology itself.</div>
+          <div class="mp-news-meta">
+            <span class="mp-news-tag">→ Energy &amp; Nuclear</span>
+            <span class="mp-news-date">4 days ago</span>
+            <a href="#" target="_blank" class="mp-news-link">Read →</a>
+          </div>
         </div>
 
-        <div class="mp-item">
-          <div class="mp-headline">RXRX — Phase 2 readout for REC-994 (oncology) expected Q3 2026</div>
-          <p class="mp-context">Recursion's lead oncology program — an mTOR pathway inhibitor discovered entirely by its AI platform — is expected to deliver Phase 2 interim efficacy data in Q3 2026. This will be the most-watched event for RXRX since IPO: the first major test of whether an AI-discovered drug demonstrates clinical efficacy in humans. A positive readout validates the platform thesis and changes the conversation from "is the data valuable" to "can it produce drugs."</p>
-          <span class="mp-impact mp-watch">Catalyst — 60–90 days out</span>
+        <div class="mp-news-card">
+          <div class="mp-news-headline">Patrick Boyle: The Palantir premium — AIP commercial growth vs. the valuation question</div>
+          <div class="mp-news-summary">Rigorous and balanced analysis of Palantir's AIP commercial adoption curve against a 50–80x revenue multiple. Boyle's key point: at this valuation, PLTR is not a "what if AIP wins" bet — it's a "by how much and how fast" bet. Worth watching before sizing up.</div>
+          <div class="mp-news-meta">
+            <span class="mp-news-tag">→ PLTR</span>
+            <span class="mp-news-date">5 days ago</span>
+            <a href="#" target="_blank" class="mp-news-link">Read →</a>
+          </div>
         </div>
-
       </div>
 
-    </div><!-- /mp-grid -->
+      <!-- Yahoo Finance -->
+      <div class="mp-source-block">
+        <div class="mp-source-head">
+          <div class="mp-source-icon mp-src-yahoo">Y!</div>
+          <div class="mp-source-name">Yahoo Finance</div>
+          <div class="mp-source-count">3 items</div>
+        </div>
+
+        <div class="mp-news-card">
+          <div class="mp-news-headline">Rocket Lab completes Neutron first stage static fire test — 2027 first launch remains on track</div>
+          <div class="mp-news-summary">Rocket Lab completed a full-duration static fire of the Neutron rocket's Archimedes engine cluster, exceeding thrust performance targets. CEO Peter Beck confirmed the 2027 first launch target. This is the most important hardware milestone for the Neutron program since ground testing began.</div>
+          <div class="mp-news-meta">
+            <span class="mp-news-tag">→ RKLB</span>
+            <span class="mp-news-date">1 day ago</span>
+            <a href="#" target="_blank" class="mp-news-link">Read →</a>
+          </div>
+        </div>
+
+        <div class="mp-news-card">
+          <div class="mp-news-headline">Recursion closes Phase 2 enrollment for REC-994 — Q3 interim readout confirmed as company's primary catalyst</div>
+          <div class="mp-news-summary">Recursion completed enrollment of 240 patients across 18 sites for its lead oncology program. Management confirmed the interim efficacy analysis is expected in Q3 2026. This makes REC-994's readout the most binary event for RXRX since its IPO — the first real test of whether the AI platform finds drugs that work in humans.</div>
+          <div class="mp-news-meta">
+            <span class="mp-news-tag">→ RXRX</span>
+            <span class="mp-news-date">This week</span>
+            <a href="#" target="_blank" class="mp-news-link">Read →</a>
+          </div>
+        </div>
+
+        <div class="mp-news-card">
+          <div class="mp-news-headline">Casgevy reaches 1,000 patients globally — CRISPR Therapeutics and Vertex raise 2026 commercial guidance</div>
+          <div class="mp-news-summary">The sickle cell / beta-thalassemia gene therapy has treated its 1,000th patient globally across 45 authorized treatment centers — ahead of the original ramp schedule. Both CRSP and Vertex raised their 2026 commercial revenue guidance on the back of the milestone. Pipeline expansion into Hemophilia A is the next announced program.</div>
+          <div class="mp-news-meta">
+            <span class="mp-news-tag">→ CRSP</span>
+            <span class="mp-news-date">3 days ago</span>
+            <a href="#" target="_blank" class="mp-news-link">Read →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reuters -->
+      <div class="mp-source-block">
+        <div class="mp-source-head">
+          <div class="mp-source-icon mp-src-reuters">R</div>
+          <div class="mp-source-name">Reuters</div>
+          <div class="mp-source-count">3 items</div>
+        </div>
+
+        <div class="mp-news-card">
+          <div class="mp-news-headline">FAA issues JOBY Aviation Stage 5 flight test authorization — 60-day type certificate review clock begins</div>
+          <div class="mp-news-summary">The FAA granted Joby's Stage 5 flight test authorization, the final regulatory gate before type certification. The agency has 60 days to complete its review of submitted conformity data before issuing the certificate. JOBY confirmed Stage 5 flight testing has commenced.</div>
+          <div class="mp-news-meta">
+            <span class="mp-news-tag">→ JOBY</span>
+            <span class="mp-news-date">2 days ago</span>
+            <a href="#" target="_blank" class="mp-news-link">Read →</a>
+          </div>
+        </div>
+
+        <div class="mp-news-card">
+          <div class="mp-news-headline">NRC's modernized SMR licensing framework enters 90-day comment period — industry reaction mixed</div>
+          <div class="mp-news-summary">The NRC opened public comment on its new technology-neutral review pathway for sub-300MW advanced fission reactors. Oklo and NuScale are listed as anticipated early applicants under the framework. Environmental groups have flagged concerns about reduced site-specific safety reviews — which could modify the final rule.</div>
+          <div class="mp-news-meta">
+            <span class="mp-news-tag">→ Energy &amp; Nuclear</span>
+            <span class="mp-news-date">4 days ago</span>
+            <a href="#" target="_blank" class="mp-news-link">Read →</a>
+          </div>
+        </div>
+
+        <div class="mp-news-card">
+          <div class="mp-news-headline">Pentagon awards $2.4B AI operations contract — Palantir AIP named primary platform, Azure as infrastructure layer</div>
+          <div class="mp-news-summary">The Department of Defense awarded a multi-year AI-powered battlefield intelligence and logistics contract. Palantir's AIP was designated the primary software deployment platform; Microsoft Azure provides the infrastructure layer. This is the largest single AIP contract disclosed publicly to date.</div>
+          <div class="mp-news-meta">
+            <span class="mp-news-tag">→ PLTR · Defense &amp; Cyber</span>
+            <span class="mp-news-date">This week</span>
+            <a href="#" target="_blank" class="mp-news-link">Read →</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /newsroom -->
+
+    <!-- ══════════════════════════════════════════
+         TAB 2 — EARNINGS WATCH
+    ══════════════════════════════════════════ -->
+    <div id="mp-view-earnings" class="mp-tab-view" style="display:none">
+
+      <div class="mp-qoverview">
+        <strong>Q1 2026 earnings season is effectively closed.</strong> Most S&P 500 companies have reported. The dominant theme was AI capex validation: hyperscalers raised infrastructure spending guidance even as top-line growth showed early deceleration, signaling conviction in the long-cycle thesis over near-term margin optimization. For the portfolio, the remaining key reads are concentrated this week and next — ASTS, CRSP, RXRX, and JOBY all deliver numbers in the next 10 days. These aren't EPS beats that matter; they're narrative updates on thesis execution.
+      </div>
+
+      <!-- UPCOMING -->
+      <div class="mp-earn-section-label">Upcoming</div>
+
+      <!-- ASTS -->
+      <div class="mp-earn-card mp-earn-pending">
+        <div class="mp-earn-top">
+          <div class="mp-earn-ticker">ASTS</div>
+          <span class="mp-key-badge">Key</span>
+          <div class="mp-earn-name">AST SpaceMobile</div>
+          <div class="mp-earn-when"><strong>May 29</strong> Pre-market &nbsp;<span class="mp-earn-timing">Pre-Mkt</span></div>
+        </div>
+        <div class="mp-earn-stats">
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">EPS Est.</div><div class="mp-earn-stat-val">−$0.35</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Rev. Est.</div><div class="mp-earn-stat-val">$28M</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Impl. Move</div><div class="mp-earn-stat-val">±22%</div></div>
+        </div>
+        <div class="mp-earn-bottom">
+          <div class="mp-earn-stance-row"><span class="mp-stance mp-stance-long">Long</span><div class="mp-earn-expl">Block 2 throughput already de-risks the technology — subscriber ramp commentary is the only number that matters.</div></div>
+          <div class="mp-earn-watch"><strong>Watch:</strong> Guidance on 20+ Block 2 satellite constellation timeline for Q4 2026 — management's own target for commercial viability.</div>
+        </div>
+      </div>
+
+      <!-- CRSP -->
+      <div class="mp-earn-card mp-earn-pending">
+        <div class="mp-earn-top">
+          <div class="mp-earn-ticker">CRSP</div>
+          <div class="mp-earn-name">CRISPR Therapeutics</div>
+          <div class="mp-earn-when"><strong>May 29</strong> Post-market &nbsp;<span class="mp-earn-timing">After Hrs</span></div>
+        </div>
+        <div class="mp-earn-stats">
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">EPS Est.</div><div class="mp-earn-stat-val">$0.45</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Rev. Est.</div><div class="mp-earn-stat-val">$195M</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Impl. Move</div><div class="mp-earn-stat-val">±15%</div></div>
+        </div>
+        <div class="mp-earn-bottom">
+          <div class="mp-earn-stance-row"><span class="mp-stance mp-stance-neutral">Neutral</span><div class="mp-earn-expl">Casgevy ramp pace is improving but slower than original bulls modeled — setting the right expectations matters here.</div></div>
+          <div class="mp-earn-watch"><strong>Watch:</strong> Total Casgevy patient count and treatment center authorizations — currently 1,000 patients / 45 centers. Bull case needs 80+ centers by year-end.</div>
+        </div>
+      </div>
+
+      <!-- RXRX -->
+      <div class="mp-earn-card mp-earn-pending">
+        <div class="mp-earn-top">
+          <div class="mp-earn-ticker">RXRX</div>
+          <span class="mp-key-badge">Key</span>
+          <div class="mp-earn-name">Recursion Pharmaceuticals</div>
+          <div class="mp-earn-when"><strong>Jun 3</strong> Post-market &nbsp;<span class="mp-earn-timing">After Hrs</span></div>
+        </div>
+        <div class="mp-earn-stats">
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">EPS Est.</div><div class="mp-earn-stat-val">−$0.72</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Rev. Est.</div><div class="mp-earn-stat-val">$42M</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Impl. Move</div><div class="mp-earn-stat-val">±25%</div></div>
+        </div>
+        <div class="mp-earn-bottom">
+          <div class="mp-earn-stance-row"><span class="mp-stance mp-stance-wait">Wait &amp; See</span><div class="mp-earn-expl">The earnings are secondary. This call is all about the Phase 2 readout timeline — any pull-forward or push-out will move the stock more than the revenue line.</div></div>
+          <div class="mp-earn-watch"><strong>Watch:</strong> Any updated REC-994 Phase 2 readout timeline. A Q2 pull-forward is the upside surprise; a push-out to Q4 is the risk.</div>
+        </div>
+      </div>
+
+      <!-- JOBY -->
+      <div class="mp-earn-card mp-earn-pending">
+        <div class="mp-earn-top">
+          <div class="mp-earn-ticker">JOBY</div>
+          <span class="mp-key-badge">Key</span>
+          <div class="mp-earn-name">Joby Aviation</div>
+          <div class="mp-earn-when"><strong>Jun 3</strong> Post-market &nbsp;<span class="mp-earn-timing">After Hrs</span></div>
+        </div>
+        <div class="mp-earn-stats">
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">EPS Est.</div><div class="mp-earn-stat-val">−$0.21</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Rev. Est.</div><div class="mp-earn-stat-val">$5M</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Impl. Move</div><div class="mp-earn-stat-val">±18%</div></div>
+        </div>
+        <div class="mp-earn-bottom">
+          <div class="mp-earn-stance-row"><span class="mp-stance mp-stance-long">Long</span><div class="mp-earn-expl">With Stage 5 authorization in hand and the FAA 60-day clock running, the call will be JOBY's first formal type certificate timeline update.</div></div>
+          <div class="mp-earn-watch"><strong>Watch:</strong> FAA Stage 5 timeline commentary and DoD contract pipeline — the DoD revenue bridges near-term cash before commercial launch.</div>
+        </div>
+      </div>
+
+      <!-- IONQ -->
+      <div class="mp-earn-card mp-earn-pending">
+        <div class="mp-earn-top">
+          <div class="mp-earn-ticker">IONQ</div>
+          <div class="mp-earn-name">IonQ Inc.</div>
+          <div class="mp-earn-when"><strong>Jun 5</strong> Post-market &nbsp;<span class="mp-earn-timing">After Hrs</span></div>
+        </div>
+        <div class="mp-earn-stats">
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">EPS Est.</div><div class="mp-earn-stat-val">−$0.18</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Rev. Est.</div><div class="mp-earn-stat-val">$28M</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Impl. Move</div><div class="mp-earn-stat-val">±20%</div></div>
+        </div>
+        <div class="mp-earn-bottom">
+          <div class="mp-earn-stance-row"><span class="mp-stance mp-stance-long">Long</span><div class="mp-earn-expl">First quarter where the 64 AQ commercial deployment on AWS and Azure is reflected in bookings data — quality of customer base matters more than revenue size.</div></div>
+          <div class="mp-earn-watch"><strong>Watch:</strong> Bookings from the 64 AQ system and any named customer additions — plus 128 AQ roadmap update for 2027.</div>
+        </div>
+      </div>
+
+      <!-- ALREADY REPORTED -->
+      <div class="mp-earn-section-label">Already Reported</div>
+
+      <!-- NVDA -->
+      <div class="mp-earn-card mp-earn-reported">
+        <div class="mp-earn-top">
+          <div class="mp-earn-ticker">NVDA</div>
+          <span class="mp-key-badge">Key</span>
+          <div class="mp-earn-name">NVIDIA Corp.</div>
+          <div class="mp-earn-when"><strong>May 28</strong> Post-market &nbsp;<span class="mp-earn-timing">After Hrs</span></div>
+        </div>
+        <div class="mp-earn-stats">
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">EPS Est. / Act.</div><div class="mp-earn-stat-val">$0.98 / $1.13</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Rev. Est. / Act.</div><div class="mp-earn-stat-val">$43.2B / $44.1B</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Impl. Move</div><div class="mp-earn-stat-val">±9%</div></div>
+        </div>
+        <div class="mp-earn-bottom">
+          <div class="mp-earn-stance-row"><span class="mp-stance mp-stance-long">Long</span><div class="mp-earn-expl">Blackwell demand exceeded supply for the third consecutive quarter; gross margin guide of 78%+ raises the floor for the entire AI capex narrative.</div></div>
+          <div class="mp-earn-watch"><strong>Was watching:</strong> Q3 gross margin guidance ≥75% — delivered 78.4%.</div>
+          <div class="mp-earn-status-row">
+            <span class="mp-status mp-status-beat">Beat</span>
+            <span class="mp-price-up">+12.4%</span>
+            <span class="mp-price-note">next session</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLTR -->
+      <div class="mp-earn-card mp-earn-reported">
+        <div class="mp-earn-top">
+          <div class="mp-earn-ticker">PLTR</div>
+          <span class="mp-key-badge">Key</span>
+          <div class="mp-earn-name">Palantir Technologies</div>
+          <div class="mp-earn-when"><strong>May 5</strong> Post-market &nbsp;<span class="mp-earn-timing">After Hrs</span></div>
+        </div>
+        <div class="mp-earn-stats">
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">EPS Est. / Act.</div><div class="mp-earn-stat-val">$0.13 / $0.16</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Rev. Est. / Act.</div><div class="mp-earn-stat-val">$880M / $912M</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Impl. Move</div><div class="mp-earn-stat-val">±10%</div></div>
+        </div>
+        <div class="mp-earn-bottom">
+          <div class="mp-earn-stance-row"><span class="mp-stance mp-stance-long">Long</span><div class="mp-earn-expl">Commercial ARR +72% YoY — AIP is the thesis playing out in real-time earnings data, not future promises.</div></div>
+          <div class="mp-earn-watch"><strong>Was watching:</strong> US commercial revenue growth (delivered 56% YoY — above the 45% bull case assumption).</div>
+          <div class="mp-earn-status-row">
+            <span class="mp-status mp-status-beat">Beat</span>
+            <span class="mp-price-up">+8.3%</span>
+            <span class="mp-price-note">next session</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MSFT -->
+      <div class="mp-earn-card mp-earn-reported">
+        <div class="mp-earn-top">
+          <div class="mp-earn-ticker">MSFT</div>
+          <div class="mp-earn-name">Microsoft Corp.</div>
+          <div class="mp-earn-when"><strong>Apr 30</strong> Post-market &nbsp;<span class="mp-earn-timing">After Hrs</span></div>
+        </div>
+        <div class="mp-earn-stats">
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">EPS Est. / Act.</div><div class="mp-earn-stat-val">$3.48 / $3.54</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Rev. Est. / Act.</div><div class="mp-earn-stat-val">$68.9B / $70.1B</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Impl. Move</div><div class="mp-earn-stat-val">±6%</div></div>
+        </div>
+        <div class="mp-earn-bottom">
+          <div class="mp-earn-stance-row"><span class="mp-stance mp-stance-long">Long</span><div class="mp-earn-expl">Azure AI at +28% YoY validates the $13B OpenAI partnership economics — this is hyperscaler AI capex generating visible revenue returns.</div></div>
+          <div class="mp-earn-watch"><strong>Was watching:</strong> Azure growth rate YoY — delivered 30% total (+28% AI-attributed).</div>
+          <div class="mp-earn-status-row">
+            <span class="mp-status mp-status-beat">Beat</span>
+            <span class="mp-price-up">+4.2%</span>
+            <span class="mp-price-note">next session</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AMD -->
+      <div class="mp-earn-card mp-earn-reported">
+        <div class="mp-earn-top">
+          <div class="mp-earn-ticker">AMD</div>
+          <div class="mp-earn-name">Advanced Micro Devices</div>
+          <div class="mp-earn-when"><strong>Apr 29</strong> Post-market &nbsp;<span class="mp-earn-timing">After Hrs</span></div>
+        </div>
+        <div class="mp-earn-stats">
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">EPS Est. / Act.</div><div class="mp-earn-stat-val">$1.58 / $1.59</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Rev. Est. / Act.</div><div class="mp-earn-stat-val">$7.1B / $7.0B</div></div>
+          <div class="mp-earn-stat"><div class="mp-earn-stat-lbl">Impl. Move</div><div class="mp-earn-stat-val">±8%</div></div>
+        </div>
+        <div class="mp-earn-bottom">
+          <div class="mp-earn-stance-row"><span class="mp-stance mp-stance-wait">Wait &amp; See</span><div class="mp-earn-expl">MI300X primarily capturing inference workloads — not denting NVDA's AI training dominance. Watch MI400 roadmap before adding conviction.</div></div>
+          <div class="mp-earn-watch"><strong>Was watching:</strong> DC GPU revenue split between inference vs. training — confirmed inference-only adoption, training market untouched.</div>
+          <div class="mp-earn-status-row">
+            <span class="mp-status mp-status-inline">In Line</span>
+            <span class="mp-price-down">−3.2%</span>
+            <span class="mp-price-note">next session</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /earnings -->
+
+    <!-- ══════════════════════════════════════════
+         TAB 3 — MARKET INTEL
+    ══════════════════════════════════════════ -->
+    <div id="mp-view-intel" class="mp-tab-view" style="display:none">
+
+      <!-- ── Macro & Rates ── -->
+      <div class="mp-intel-section">
+        <div class="mp-intel-title">Macro &amp; Rates</div>
+
+        <div class="mp-item">
+          <div class="mp-headline">Fed signals two cuts in H2 2026 — September remains the base case</div>
+          <p class="mp-context">The May FOMC meeting held rates at 4.25%. Language shifted subtly from "patient" to "prepared to act as conditions warrant" — a deliberate signal ahead of a September cut. Services CPI remains at 3.1%, but the trend is consistently lower. Fed funds futures price 51bp of cuts by December. This regime is increasingly favorable for long-duration positions: pre-revenue names with long investment horizons benefit disproportionately from even modest discount rate relief.</p>
+          <span class="mp-impact mp-bull">Bullish — rate-sensitive growth names</span>
+        </div>
+
+        <div class="mp-item">
+          <div class="mp-headline">10-year Treasury at 4.35% — real yields declining as nominal anchors drift lower</div>
+          <p class="mp-context">The 10-year yield has drifted 25bp lower from its March 2026 peak of 4.60% as inflation expectations moderate. The real yield (10Y minus 5Y breakeven) is now at 1.9%, down from a cycle high of 2.3% in Q4 2025. Duration risk is working in favor of growth positioning for the first time in 18 months. Watch for any reversal if May or June CPI surprises to the upside — the structural bull case for rates is dependent on continued disinflation in services.</p>
+          <span class="mp-impact mp-bull">Bullish — long-duration, speculative growth</span>
+        </div>
+
+        <div class="mp-item">
+          <div class="mp-headline">S&P 500 flat YTD — AI capex intact, dispersion is the alpha opportunity</div>
+          <p class="mp-context">The index has given back its Q1 gains on tariff noise and mixed consumer data. The key signal is in earnings calls, not price: hyperscalers raised 2026 AI capex guidance collectively past $350B. Top-10 concentration is at 38% — the highest since 2000. In this environment, idiosyncratic alpha from individual positions outperforms index beta. The portfolio's non-consensus positions are better aligned to a high-dispersion, low-index-return environment than to a broad market rally.</p>
+          <span class="mp-impact mp-neut">Neutral — favors stock-picking over index exposure</span>
+        </div>
+      </div>
+
+      <!-- ── Sector Moves ── -->
+      <div class="mp-intel-section">
+        <div class="mp-intel-title">Sector Moves</div>
+
+        <div class="mp-item">
+          <div class="mp-sector-tag">Energy &amp; Nuclear</div>
+          <div class="mp-headline">NRC's modernized SMR licensing framework is the most significant regulatory development in advanced fission in 20 years</div>
+          <p class="mp-context">The new technology-neutral review pathway could compress the advanced fission licensing timeline from 8–10 years to 5–6 years for applications that meet the new design criteria. This removes the primary bear case for pre-revenue nuclear names — the single most frequently cited reason to avoid the sector was regulatory timeline risk, not technology. The 90-day comment period is ongoing. Watch for conventional energy and environmental group opposition, which could modify the framework before finalization. If the rule survives largely intact, the deployment clock for the first commercial SMRs moves from "2032–2035 at best" to "2030 possible."</p>
+          <span class="mp-impact mp-bull">Bullish — advanced fission sector broadly</span>
+        </div>
+
+        <div class="mp-item">
+          <div class="mp-sector-tag">AI / Software</div>
+          <div class="mp-headline">Enterprise AI moving from pilots to production — hyperscaler capex is the leading indicator</div>
+          <p class="mp-context">Microsoft, Google, and Meta raised 2026 AI infrastructure spend guidance in Q1 earnings, collectively committing over $350B for the year. This is the clearest signal that hyperscalers see revenue returns justifying the spend — not just competitive positioning. For enterprise AI software, the implication is a growing deployment TAM: more enterprises can now afford to run production AI workloads that require specialized deployment platforms. The sector is entering the second phase of the cycle, where early-adopter revenue transitions to broad enterprise adoption. Regulatory AI governance frameworks emerging in the EU and US could slow certain verticals, but defense and healthcare — the regulated industries most differentiated by specialized platforms — are largely exempt.</p>
+          <span class="mp-impact mp-bull">Bullish — enterprise AI deployment cycle accelerating</span>
+        </div>
+
+        <div class="mp-item">
+          <div class="mp-sector-tag">Space</div>
+          <div class="mp-headline">Starship operational capability changes the economics of every large-scale space program — cuts go in two directions</div>
+          <p class="mp-context">With Starship Flight 9 achieving a fully nominal mission, SpaceX is targeting 10+ launches in 2026, each capable of putting 100+ metric tons to low Earth orbit. This changes the unit economics of satellite constellation deployment (falling launch costs benefit operators), lunar logistics (NASA Artemis program now has a viable heavy-lift option at lower cost), and space infrastructure broadly. The catch: companies that planned their revenue models around Falcon 9 pricing ($6–9K/kg) will need to reprice as Starship drives marginal costs toward $100–500/kg at scale. Pure-play launch competitors face structural headwinds; companies with systems-integration and satellite-manufacturing capabilities benefit from lower launch costs without the competitive risk.</p>
+          <span class="mp-impact mp-bull">Bullish (customers) — watch launch-competitor exposure</span>
+        </div>
+      </div>
+
+    </div><!-- /intel -->
+
+    <!-- ══════════════════════════════════════════
+         TAB 4 — TICKER & CATALYSTS
+    ══════════════════════════════════════════ -->
+    <div id="mp-view-catalysts" class="mp-tab-view" style="display:none">
+
+      <!-- UPCOMING: chronological, soonest first -->
+
+      <div class="mp-cat-item mp-cat-item-upcoming">
+        <div class="mp-cat-top">
+          <span class="mp-cat-badge mp-cat-badge-upcoming">Upcoming</span>
+          <span class="mp-cat-ticker">ASTS</span>
+          <span class="mp-imp-high">High</span>
+          <span class="mp-cat-date">May 29 — Pre-market</span>
+        </div>
+        <div class="mp-cat-headline">Q1 2026 Earnings — first real commercial read from Block 2 satellite deployment</div>
+        <div class="mp-cat-context">The numbers (−$0.35 EPS, $28M revenue) are less important than the narrative. Management commentary on Block 2 performance, subscriber acquisition in the 40 live AT&T markets, and the Q4 constellation expansion timeline will determine whether this is a thesis-confirming or thesis-questioning quarter. The throughput data already published is encouraging — the question is whether it holds at density.</div>
+        <div class="mp-cat-footer"></div>
+      </div>
+
+      <div class="mp-cat-item mp-cat-item-upcoming">
+        <div class="mp-cat-top">
+          <span class="mp-cat-badge mp-cat-badge-upcoming">Upcoming</span>
+          <span class="mp-cat-ticker">CRSP</span>
+          <span class="mp-imp-med">Medium</span>
+          <span class="mp-cat-date">May 29 — Post-market</span>
+        </div>
+        <div class="mp-cat-headline">Q1 2026 Earnings — Casgevy patient count and treatment center expansion guidance</div>
+        <div class="mp-cat-context">CRSP and Vertex co-own Casgevy's commercial economics. The call will be monitored for the updated patient count (1,000 confirmed as of this week) and — more importantly — guidance on treatment center authorizations in progress. Currently 45 globally; bull case requires 80+ by year-end to achieve the revenue trajectory priced in at current multiples. Pipeline update on Hemophilia A (next announced program) is also expected.</div>
+        <div class="mp-cat-footer"></div>
+      </div>
+
+      <div class="mp-cat-item mp-cat-item-upcoming">
+        <div class="mp-cat-top">
+          <span class="mp-cat-badge mp-cat-badge-upcoming">Upcoming</span>
+          <span class="mp-cat-ticker">RXRX</span>
+          <span class="mp-imp-high">High</span>
+          <span class="mp-cat-date">Jun 3 — Post-market</span>
+        </div>
+        <div class="mp-cat-headline">Q1 2026 Earnings — the call is a REC-994 Phase 2 readout timeline update, not an earnings event</div>
+        <div class="mp-cat-context">The consensus EPS (−$0.72) and revenue ($42M) are secondary. Every analyst will be listening for updated commentary on the REC-994 interim efficacy analysis. Enrollment is confirmed closed at 240 patients across 18 sites — data should be maturing. A pull-forward from Q3 to Q2 would be a significant catalyst; any push-out to Q4 would weigh heavily on a stock that's pricing in a positive readout. Size for the binary outcome before the call.</div>
+        <div class="mp-cat-footer"></div>
+      </div>
+
+      <div class="mp-cat-item mp-cat-item-upcoming">
+        <div class="mp-cat-top">
+          <span class="mp-cat-badge mp-cat-badge-upcoming">Upcoming</span>
+          <span class="mp-cat-ticker">JOBY</span>
+          <span class="mp-imp-high">High</span>
+          <span class="mp-cat-date">Jun 3 — Post-market</span>
+        </div>
+        <div class="mp-cat-headline">Q1 2026 Earnings — first formal type certificate timeline commentary with Stage 5 clock running</div>
+        <div class="mp-cat-context">With Stage 5 flight test authorization in hand and the FAA 60-day review clock running, the Q1 call is JOBY's first opportunity to provide a formal update on type certificate timing. Delta Air Lines holds 3,400+ pre-delivery reservations — the commercial pipeline is real. Watch also for DoD contract pipeline commentary, which is the bridge revenue before commercial operations begin and the most direct near-term cash driver.</div>
+        <div class="mp-cat-footer"></div>
+      </div>
+
+      <div class="mp-cat-item mp-cat-item-upcoming">
+        <div class="mp-cat-top">
+          <span class="mp-cat-badge mp-cat-badge-upcoming">Upcoming</span>
+          <span class="mp-cat-ticker">IONQ</span>
+          <span class="mp-imp-med">Medium</span>
+          <span class="mp-cat-date">Jun 5 — Post-market</span>
+        </div>
+        <div class="mp-cat-headline">Q1 2026 Earnings — first bookings data from the 64 AQ commercial system on AWS and Azure</div>
+        <div class="mp-cat-context">Revenue is still modest ($25–30M range), but Q1 2026 is the first quarter where 64 AQ commercial deployment is reflected in the bookings data. The quality of the customer base (Microsoft and DARPA publicly named) matters more than the revenue number. Watch for any roadmap update on the 128 AQ system, which management has targeted for Q3 2027 — hitting that milestone would confirm that IonQ's quantum performance trajectory is on track.</div>
+        <div class="mp-cat-footer"></div>
+      </div>
+
+      <div class="mp-cat-item mp-cat-item-upcoming">
+        <div class="mp-cat-top">
+          <span class="mp-cat-badge mp-cat-badge-upcoming">Upcoming</span>
+          <span class="mp-cat-ticker">PLTR</span>
+          <span class="mp-imp-high">High</span>
+          <span class="mp-cat-date">Jun 10 — Full Day</span>
+        </div>
+        <div class="mp-cat-headline">Annual Investor Day — AIP enterprise roadmap and commercial pipeline targets define the 2027 thesis</div>
+        <div class="mp-cat-context">Palantir's investor day is where the company typically lays out 2–3 year product and revenue architecture. At 50–80x revenue, the market needs to see an accelerating commercial pipeline and a credible path to why the multiple is justified. Watch for: AIP customer count disclosure, 2027 revenue guidance targets, and any announcement around the DoD AI Readiness program that would expand the government contract ceiling. A disappointing investor day at this valuation is a significant de-rating risk.</div>
+        <div class="mp-cat-footer"></div>
+      </div>
+
+      <!-- REPORTED: most recent first -->
+
+      <div class="mp-cat-item mp-cat-item-reported">
+        <div class="mp-cat-top">
+          <span class="mp-cat-badge mp-cat-badge-reported">Reported</span>
+          <span class="mp-cat-ticker">NVDA</span>
+          <span class="mp-cat-date">May 28</span>
+        </div>
+        <div class="mp-cat-headline">Q1 FY2027 Earnings Beat — Blackwell demand raises the guidance floor for the entire AI capex cycle</div>
+        <div class="mp-cat-context">NVIDIA reported $44.1B in Q1 revenue vs. $43.2B consensus, with data center at $38.9B. The Q3 guidance of $45B+ exceeded analyst models, implying no near-term deceleration. Gross margin came in at 78.4% — above the 75% bull case threshold that the street had used as an inflection test. The practical implication for every AI-adjacent position in the portfolio: the capex cycle is sustained, not peaking, and compute costs continue to fall as capacity expands. Implications: constructive for RXRX (biology inference costs declining), PLTR (more enterprise workloads become economically deployable), and semiconductor equipment broadly.</div>
+        <div class="mp-cat-footer">
+          <span class="mp-impact mp-bull">Bullish — AI ecosystem</span>
+          <span class="mp-price-up">+12.4% NVDA</span>
+        </div>
+      </div>
+
+      <div class="mp-cat-item mp-cat-item-reported">
+        <div class="mp-cat-top">
+          <span class="mp-cat-badge mp-cat-badge-reported">Reported</span>
+          <span class="mp-cat-ticker">OKLO</span>
+          <span class="mp-cat-date">May 20</span>
+        </div>
+        <div class="mp-cat-headline">DOE signs HALEU fuel supply agreement for Oklo's Aurora reactor program — secondary bear case removed</div>
+        <div class="mp-cat-context">The Department of Energy signed a formal agreement to support high-assay low-enriched uranium (HALEU) fuel supply for Oklo's Aurora microreactor program. This removes the fuel sourcing risk that has been the secondary bear case alongside NRC licensing. Combined with the NRC licensing framework update (still in comment period), Oklo's two primary obstacles now have visible resolution paths. The company remains pre-revenue and dependent on capital markets, but the risk profile has materially improved in a 30-day window.</div>
+        <div class="mp-cat-footer">
+          <span class="mp-impact mp-bull">Bullish — OKLO thesis</span>
+        </div>
+      </div>
+
+      <div class="mp-cat-item mp-cat-item-reported">
+        <div class="mp-cat-top">
+          <span class="mp-cat-badge mp-cat-badge-reported">Reported</span>
+          <span class="mp-cat-ticker">PLTR</span>
+          <span class="mp-cat-date">May 5</span>
+        </div>
+        <div class="mp-cat-headline">Q1 2026 Earnings — Commercial ARR +72% YoY signals AIP is past the adoption inflection point</div>
+        <div class="mp-cat-context">Palantir reported commercial ARR growth of 72% YoY, with US commercial revenue up 56% — above the 45% bull case that the High Conviction thesis was built on. AIP was named as the driver in every new enterprise contract signed in Q1. This is not a future promise; it is the thesis appearing in actual earnings data. The stock moved +8.3% after hours. Investor Day (Jun 10) will define whether the valuation is now the primary risk, or whether the growth rate justifies paying the premium.</div>
+        <div class="mp-cat-footer">
+          <span class="mp-impact mp-bull">Bullish</span>
+          <span class="mp-price-up">+8.3% PLTR</span>
+        </div>
+      </div>
+
+      <div class="mp-cat-item mp-cat-item-reported">
+        <div class="mp-cat-top">
+          <span class="mp-cat-badge mp-cat-badge-reported">Reported</span>
+          <span class="mp-cat-ticker">MSFT</span>
+          <span class="mp-cat-date">Apr 30</span>
+        </div>
+        <div class="mp-cat-headline">Q3 FY2026 — Azure AI at +28% YoY confirms the OpenAI investment is generating measurable revenue returns</div>
+        <div class="mp-cat-context">Microsoft's Azure segment grew 30% YoY total, with AI services contributing 28% of that growth — above the 24% analyst consensus. This validates the broader enterprise AI thesis: hyperscalers are not just spending on AI; they are generating revenue from it. For PLTR specifically, more enterprises building Azure-native AI infrastructure creates a larger addressable market for AIP as a deployment layer. Revenue at $70.1B vs. $68.9B consensus. Beat across all segments. Raised FY2026 guidance.</div>
+        <div class="mp-cat-footer">
+          <span class="mp-impact mp-bull">Bullish — enterprise AI ecosystem</span>
+          <span class="mp-price-up">+4.2% MSFT</span>
+        </div>
+      </div>
+
+    </div><!-- /catalysts -->
 
   </main>
 </div>
+
+<script>
+function mpShow(name, btn) {
+  document.querySelectorAll('.mp-tab-view').forEach(function(v) { v.style.display = 'none'; });
+  document.querySelectorAll('.mp-tab').forEach(function(b) { b.classList.remove('active'); });
+  document.getElementById('mp-view-' + name).style.display = '';
+  btn.classList.add('active');
+}
+</script>
 
 </body>
 </html>
