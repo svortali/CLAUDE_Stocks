@@ -117,10 +117,9 @@ a:hover { text-decoration: underline; }
   font-weight: 600;
 }
 
-.sidebar-links li a.sidebar-overview {
+/* First 4 nav items are 1px larger than sector links (13px → 14px) */
+.sidebar-links li:nth-child(-n+4) > a {
   font-size: 14px;
-  font-weight: 700;
-  color: var(--text);
 }
 
 .sidebar-divider {
